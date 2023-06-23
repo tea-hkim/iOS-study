@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01AAADBA2A459CF100FF14A1 /* NormalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AAADB92A459CF100FF14A1 /* NormalCollectionViewCell.swift */; };
 		9003312F2A429A8900FB5330 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9003312E2A429A8900FB5330 /* AppDelegate.swift */; };
 		900331312A429A8900FB5330 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900331302A429A8900FB5330 /* SceneDelegate.swift */; };
 		900331332A429A8900FB5330 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900331322A429A8900FB5330 /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01AAADB92A459CF100FF14A1 /* NormalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalCollectionViewCell.swift; sourceTree = "<group>"; };
 		9003312B2A429A8900FB5330 /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9003312E2A429A8900FB5330 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		900331302A429A8900FB5330 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +69,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01AAADB72A459CC400FF14A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				01AAADB82A459CC900FF14A1 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		01AAADB82A459CC900FF14A1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				01AAADB92A459CF100FF14A1 /* NormalCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		900331222A429A8900FB5330 = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +108,7 @@
 				900331302A429A8900FB5330 /* SceneDelegate.swift */,
 				900331322A429A8900FB5330 /* ViewController.swift */,
 				900331632A42FD8300FB5330 /* TabButtonView.swift */,
+				01AAADB72A459CC400FF14A1 /* View */,
 				900331652A431CF000FB5330 /* ViewModel.swift */,
 				900331502A42D1C400FB5330 /* Network */,
 				900331372A429A8900FB5330 /* Assets.xcassets */,
@@ -218,6 +237,7 @@
 				900331332A429A8900FB5330 /* ViewController.swift in Sources */,
 				900331522A42D1D700FB5330 /* Const.swift in Sources */,
 				9003315B2A42E71500FB5330 /* Network.swift in Sources */,
+				01AAADBA2A459CF100FF14A1 /* NormalCollectionViewCell.swift in Sources */,
 				9003315D2A42EEEB00FB5330 /* TVNetwork.swift in Sources */,
 				900331572A42DCEF00FB5330 /* Movie.swift in Sources */,
 				9003315F2A42F8A200FB5330 /* MovieNetwork.swift in Sources */,

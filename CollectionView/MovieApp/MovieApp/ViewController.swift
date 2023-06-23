@@ -14,12 +14,24 @@ class ViewController: UIViewController {
     // MARK: - UI Property
     
     private let tabButtonView = TabButtonView()
-    private let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+    private let collectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+        collectionView.register(NormalCollectionViewCell.self, forCellWithReuseIdentifier: NormalCollectionViewCell.id)
+        return collectionView
+    }()
+
     
     // MARK: - Property
     
     private let disposeBag = DisposeBag()
     private let viewModel = ViewModel()
+    
+    private enum Section: Hashable {
+        case double
+    }
+    private enum Item: Hashable {
+        case normal(TV)
+    }
     
     //output
     private let tvTrigger = PublishSubject<Void>()

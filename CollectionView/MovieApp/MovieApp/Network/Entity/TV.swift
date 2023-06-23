@@ -17,7 +17,7 @@ struct TVListModel: Decodable {
     }
 }
 
-struct TV: Decodable {
+struct TV: Decodable, Hashable {
     let firstAirDate: String
     let name: String
     let overview: String
