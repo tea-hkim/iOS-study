@@ -47,6 +47,7 @@ class NormalCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setConstarints()
     }
     
     required init?(coder: NSCoder) {
@@ -83,7 +84,9 @@ class NormalCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Function
     
-    func configureComponents(imageUrl: String, title: String, review: String, description: String) {
+    func configureComponents(imageUrl: String?, title: String?, review: String?, description: String?) {
+        // TODO: - Error 처리하기
+        guard let imageUrl else { return }
         image.kf.setImage(with: URL(string: imageUrl))
         titleLabel.text = title
         reviewLabel.text = review

@@ -8,8 +8,8 @@
 import Foundation
 
 struct TVListModel: Decodable {
-    let page: Int
-    let tvList: [TV]
+    let page: Int?
+    let tvList: [TV]?
     
     enum CodingKeys: String, CodingKey {
         case page
@@ -18,12 +18,13 @@ struct TVListModel: Decodable {
 }
 
 struct TV: Decodable, Hashable {
-    let firstAirDate: String
-    let name: String
-    let overview: String
-    let posterURL: String
-    let voteAverage: Double
-    let voteCount: Int
+    let firstAirDate: String?
+    let name: String?
+    let overview: String?
+    let posterURL: String?
+//    let voteAverage: Double?
+//    let voteCount: Int?
+    let vote: String?
 
     enum CodingKeys: String, CodingKey {
         case firstAirDate = "first_air_date"
@@ -42,7 +43,8 @@ struct TV: Decodable, Hashable {
         overview = try container.decode(String.self, forKey: .overview)
         let posterPath = try container.decode(String.self, forKey: .posterPath)
         posterURL = "https://image.tmdb.org/t/p/w500/\(posterPath)"
-        voteAverage = try container.decode(Double.self, forKey: .voteAverage)
-        voteCount = try container.decode(Int.self, forKey: .voteCount)
+        let voteAverage = try container.decode(Double.self, forKey: .voteAverage)
+        let voteCount = try container.decode(Int.self, forKey: .voteCount)
+        vote = "\(voteAverage)/\(voteCount)"
     }
 }
