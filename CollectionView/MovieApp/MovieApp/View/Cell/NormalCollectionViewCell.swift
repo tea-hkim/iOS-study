@@ -24,19 +24,16 @@ class NormalCollectionViewCell: UICollectionViewCell {
         image.layer.masksToBounds = true
         return image
     }()
-    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 20, weight: .bold)
         return label
     }()
-    
     private let reviewLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14, weight: .medium)
         return label
     }()
-    
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14, weight: .regular)
@@ -47,7 +44,7 @@ class NormalCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setConstarints()
+        setConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -56,7 +53,7 @@ class NormalCollectionViewCell: UICollectionViewCell {
     
     // MARK: - UI Function
     
-    private func setConstarints() {
+    private func setConstraints() {
         [image, titleLabel, reviewLabel, descriptionLabel].forEach {
             addSubview($0)
         }

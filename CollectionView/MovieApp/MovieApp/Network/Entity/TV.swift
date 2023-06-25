@@ -22,8 +22,6 @@ struct TV: Decodable, Hashable {
     let name: String?
     let overview: String?
     let posterURL: String?
-//    let voteAverage: Double?
-//    let voteCount: Int?
     let vote: String?
 
     enum CodingKeys: String, CodingKey {

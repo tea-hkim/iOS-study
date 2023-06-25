@@ -17,19 +17,19 @@ struct MovieListModel: Decodable {
     }
 }
 
-struct Movie: Decodable {
+struct Movie: Decodable, Hashable {
+    let name: String?
     let overview: String?
     let popularity: Double?
     let posterURL: String?
-    let releaseDate, title: String?
-    let voteAverage: Double?
-    let voteCount: Int?
+    let releaseDate: String?
+    let vote: String?
 
     enum CodingKeys: String, CodingKey {
         case overview, popularity
         case posterPath = "poster_path"
         case releaseDate = "release_date"
-        case title
+        case name = "title"
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
     }
@@ -42,8 +42,9 @@ struct Movie: Decodable {
         let posterPath = try container.decode(String.self, forKey: .posterPath)
         posterURL = "https://image.tmdb.org/t/p/w500/\(posterPath)"
         releaseDate = try container.decode(String.self, forKey: .releaseDate)
-        title = try container.decode(String.self, forKey: .title)
-        voteAverage = try container.decode(Double.self, forKey: .voteAverage)
-        voteCount = try container.decode(Int.self, forKey: .voteCount)
+        name = try container.decode(String.self, forKey: .name)
+        let voteAverage = try container.decode(Double.self, forKey: .voteAverage)
+        let voteCount = try container.decode(Int.self, forKey: .voteCount)
+        vote = "\(voteAverage)/\(voteCount)"
     }
 }

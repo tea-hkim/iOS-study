@@ -8,7 +8,7 @@
 import Foundation
 
 struct MovieSection {
-    let onTheAir: MovieListModel
+    let nowPlaying: MovieListModel
     let popular: MovieListModel
-    let topRated: MovieListModel
+    let upComing: MovieListModel
 }

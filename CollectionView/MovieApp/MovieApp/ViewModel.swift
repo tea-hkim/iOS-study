@@ -36,8 +36,8 @@ class ViewModel {
         }
         
         let movieListObservable = input.movieTrigger.flatMapLatest {[unowned self] _ -> Observable<MovieSection?> in
-            return Observable.combineLatest(self.movieNetwork.getPoplarList(), self.movieNetwork.getUpcomingList(), self.movieNetwork.getNowPlayingList()) { onTheArir, popular, topRated -> MovieSection in
-                return MovieSection(onTheAir: onTheArir, popular: popular, topRated: topRated)
+            return Observable.combineLatest(self.movieNetwork.getPopularList(), self.movieNetwork.getUpcomingList(), self.movieNetwork.getNowPlayingList()) { nowPlaying, popular, upComing -> MovieSection in
+                return MovieSection(nowPlaying: nowPlaying, popular: popular, upComing: upComing)
             }
         }
         
