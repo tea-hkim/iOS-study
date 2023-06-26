@@ -18,6 +18,7 @@
 		0199990A2A495DF10059C9FA /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019999092A495DF10059C9FA /* LocationViewController.swift */; };
 		0199990C2A495DFA0059C9FA /* LikedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199990B2A495DFA0059C9FA /* LikedViewController.swift */; };
 		0199990E2A495E000059C9FA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199990D2A495E000059C9FA /* ProfileViewController.swift */; };
+		019999132A4973DA0059C9FA /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019999122A4973DA0059C9FA /* TabbarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		019999092A495DF10059C9FA /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		0199990B2A495DFA0059C9FA /* LikedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikedViewController.swift; sourceTree = "<group>"; };
 		0199990D2A495E000059C9FA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		019999122A4973DA0059C9FA /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				019999092A495DF10059C9FA /* LocationViewController.swift */,
 				0199990B2A495DFA0059C9FA /* LikedViewController.swift */,
 				0199990D2A495E000059C9FA /* ProfileViewController.swift */,
+				019999122A4973DA0059C9FA /* TabbarController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -98,10 +101,18 @@
 			isa = PBXGroup;
 			children = (
 				019999062A495DD40059C9FA /* View */,
+				019999142A49747F0059C9FA /* App */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		019999142A49747F0059C9FA /* App */ = {
+			isa = PBXGroup;
+			children = (
 				013D6DC42A455A1E000103E6 /* AppDelegate.swift */,
 				013D6DC62A455A1E000103E6 /* SceneDelegate.swift */,
 			);
-			path = Source;
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0199990C2A495DFA0059C9FA /* LikedViewController.swift in Sources */,
+				019999132A4973DA0059C9FA /* TabbarController.swift in Sources */,
 				019999082A495DE70059C9FA /* SearchViewController.swift in Sources */,
 				013D6DC52A455A1E000103E6 /* AppDelegate.swift in Sources */,
 				0199990A2A495DF10059C9FA /* LocationViewController.swift in Sources */,
