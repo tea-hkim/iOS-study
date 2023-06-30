@@ -13,6 +13,12 @@ enum AlertType {
 }
 
 @objc
+protocol CustomAlertDelegate {
+    func confirmAction()
+    func cancelAction()
+}
+
+@objc
 class CustomAlertView: UIViewController {
     
     // MARK: - Property
@@ -30,6 +36,7 @@ class CustomAlertView: UIViewController {
     private var contentText: String
     private var confirmText: String
     private var cancelText: String
+    @objc var delegate: CustomAlertDelegate?
     
     private enum LayoutConstant {
         static let leading: CGFloat = 20
@@ -160,18 +167,19 @@ class CustomAlertView: UIViewController {
     @objc
     private func confirmButtonTapped() {
         print("✅✅✅✅✅✅✅ confirmButton Tapped ✅✅✅✅✅✅✅")
-        self.dismiss(animated: false) {
-            
+        self.dismiss(animated: false) {[weak self] in
+            guard let self else { return }
+            self.delegate?.confirmAction()
         }
     }
     
     @objc
     private func cancelButtonTapped() {
         print("❎❎❎❎❎❎ cancelButton Tapped ❎❎❎❎❎❎")
-        self.dismiss(animated: false) {
-            
+        self.dismiss(animated: false) {[weak self] in
+            guard let self else { return }
+            self.delegate?.cancelAction()
         }
     }
     
-
 }

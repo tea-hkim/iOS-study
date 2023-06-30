@@ -8,7 +8,7 @@
 #import "ViewController.h"
 #import "CustomAlertWithSwift-Swift.h"
 
-@interface ViewController ()
+@interface ViewController () <CustomAlertDelegate>
 
 @end
 
@@ -19,11 +19,19 @@
     // Do any additional setup after loading the view.
 }
 - (IBAction)alertButtonTapped:(UIButton *)sender {
-//    CustomAlertView * customAlertView = [[CustomAlertView alloc] initWithTitle: @"제목입니다" content: @"내용입니다" confirmText: @"확인" cancelText:@"취소"];
-    CustomAlertView * customAlertView = [[CustomAlertView alloc] initWithContent: @"내용입니다" confirmText: @"확인"];
+    CustomAlertView * customAlertView = [[CustomAlertView alloc] initWithTitle: @"제목입니다" content: @"내용입니다" confirmText: @"확인" cancelText:@"취소"];
     customAlertView.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    customAlertView.delegate = self;
     [self presentViewController:customAlertView animated:NO completion:nil];
 }
 
+
+- (void)cancelAction {
+    NSLog(@"✅✅✅✅✅✅✅ Objective-C confirmButton Tapped ✅✅✅✅✅✅✅");
+}
+
+- (void)confirmAction {
+    NSLog(@"❎❎❎❎❎❎ Objective-C  cancelButton Tapped ❎❎❎❎❎❎");
+}
 
 @end
