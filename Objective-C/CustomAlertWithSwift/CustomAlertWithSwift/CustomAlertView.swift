@@ -8,8 +8,8 @@
 import UIKit
 
 enum AlertType {
-    case mustUpdate
-    case update
+    case updateRequired
+    case updateAvailable
 }
 
 @objc
@@ -26,20 +26,20 @@ class CustomAlertView: UIViewController {
     private let confirmButton = UIButton()
     private let cancelButton = UIButton()
     
-    private var titleText: String?
+    private var titleText: String
     private var contentText: String
     private var confirmText: String
-    private var cancelText: String?
+    private var cancelText: String
     
     private enum LayoutConstant {
         static let leading: CGFloat = 20
         static let trailing: CGFloat = -20
         static let space: CGFloat = 10
         static let buttonSpace: CGFloat = 15
+        static let bottom: CGFloat = -20
     }
     
     // MARK: - Lifecycle
-    
     
     @objc
     init(title: String, content: String, confirmText: String, cancelText: String) {
@@ -49,6 +49,11 @@ class CustomAlertView: UIViewController {
         self.cancelText = cancelText
         
         super.init(nibName: nil, bundle: nil)
+    }
+    
+    @objc
+    convenience init(content: String, confirmText: String) {
+        self.init(title: "", content: content, confirmText: confirmText, cancelText: "")
     }
     
     required init?(coder: NSCoder) {
@@ -73,8 +78,10 @@ class CustomAlertView: UIViewController {
         titleLabel.text = titleText
         titleLabel.font = .systemFont(ofSize: 20, weight: .bold)
         titleLabel.textAlignment = .center
+        titleLabel.isHidden = titleText.isEmpty
         
         divideLine.backgroundColor = .systemGray3
+        divideLine.isHidden = titleText.isEmpty
         
         contentLabel.text = contentText
         contentLabel.font = .systemFont(ofSize: 17, weight: .regular)
@@ -95,6 +102,7 @@ class CustomAlertView: UIViewController {
         cancelButton.setTitleColor(.darkGray, for: .normal)
         cancelButton.layer.cornerRadius = 5
         cancelButton.layer.masksToBounds = true
+        cancelButton.isHidden = cancelText.isEmpty
         
         confirmButton.addTarget(self, action: #selector(confirmButtonTapped), for: .touchUpInside)
         cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
@@ -120,29 +128,29 @@ class CustomAlertView: UIViewController {
             backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            alertView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            alertView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            alertView.heightAnchor.constraint(greaterThanOrEqualToConstant: 250),
+            alertView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: LayoutConstant.leading),
+            alertView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: LayoutConstant.trailing),
+            alertView.heightAnchor.constraint(greaterThanOrEqualToConstant: 150),
             alertView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             
-            titleLabel.topAnchor.constraint(equalTo: alertView.topAnchor, constant: 10),
-            titleLabel.leadingAnchor.constraint(equalTo: alertView.leadingAnchor, constant: 20),
-            titleLabel.trailingAnchor.constraint(equalTo: alertView.trailingAnchor, constant: -20),
+            titleLabel.topAnchor.constraint(equalTo: alertView.topAnchor, constant: LayoutConstant.space),
+            titleLabel.leadingAnchor.constraint(equalTo: alertView.leadingAnchor, constant: LayoutConstant.leading),
+            titleLabel.trailingAnchor.constraint(equalTo: alertView.trailingAnchor, constant: LayoutConstant.trailing),
             
-            divideLine.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            divideLine.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: LayoutConstant.space),
             divideLine.leadingAnchor.constraint(equalTo: alertView.leadingAnchor),
             divideLine.trailingAnchor.constraint(equalTo: alertView.trailingAnchor),
             divideLine.heightAnchor.constraint(equalToConstant: 1),
             
-            contentLabel.topAnchor.constraint(equalTo: divideLine.bottomAnchor, constant: 10),
-            contentLabel.leadingAnchor.constraint(equalTo: alertView.leadingAnchor, constant: 20),
-            contentLabel.trailingAnchor.constraint(equalTo: alertView.trailingAnchor, constant: -20),
+            contentLabel.topAnchor.constraint(equalTo: divideLine.bottomAnchor, constant: LayoutConstant.space),
+            contentLabel.leadingAnchor.constraint(equalTo: alertView.leadingAnchor, constant: LayoutConstant.leading),
+            contentLabel.trailingAnchor.constraint(equalTo: alertView.trailingAnchor, constant: LayoutConstant.trailing),
             contentLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 100),
             
-            buttonStack.topAnchor.constraint(equalTo: contentLabel.bottomAnchor, constant: 10),
-            buttonStack.leadingAnchor.constraint(equalTo: alertView.leadingAnchor, constant: 20),
-            buttonStack.trailingAnchor.constraint(equalTo: alertView.trailingAnchor, constant: -20),
-            buttonStack.bottomAnchor.constraint(equalTo: alertView.bottomAnchor, constant: -20),
+            buttonStack.topAnchor.constraint(equalTo: contentLabel.bottomAnchor, constant: LayoutConstant.space),
+            buttonStack.leadingAnchor.constraint(equalTo: alertView.leadingAnchor, constant: LayoutConstant.leading),
+            buttonStack.trailingAnchor.constraint(equalTo: alertView.trailingAnchor, constant: LayoutConstant.trailing),
+            buttonStack.bottomAnchor.constraint(equalTo: alertView.bottomAnchor, constant: LayoutConstant.bottom),
         ])
         
     }
