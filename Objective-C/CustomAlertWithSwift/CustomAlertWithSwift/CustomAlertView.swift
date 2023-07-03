@@ -69,13 +69,13 @@ class CustomAlertView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setConstraints()
+        setAttributes()
         setLayout()
     }
     
     // MARK: - UI Function
     
-    private func setConstraints() {
+    private func setAttributes() {
         backgroundView.backgroundColor = .black.withAlphaComponent(0.5)
         
         alertView.backgroundColor = .white

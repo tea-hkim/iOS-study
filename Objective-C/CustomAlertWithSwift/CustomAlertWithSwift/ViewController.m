@@ -26,11 +26,11 @@
 }
 
 
-- (void)cancelAction {
+- (void)confirmAction {
     NSLog(@"✅✅✅✅✅✅✅ Objective-C confirmButton Tapped ✅✅✅✅✅✅✅");
 }
 
-- (void)confirmAction {
+- (void)cancelAction {
     NSLog(@"❎❎❎❎❎❎ Objective-C  cancelButton Tapped ❎❎❎❎❎❎");
 }
 
