@@ -13,6 +13,8 @@
 		01B1C5AB2A53BC74003B200A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01B1C5AA2A53BC74003B200A /* Assets.xcassets */; };
 		01B1C5AE2A53BC74003B200A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01B1C5AC2A53BC74003B200A /* LaunchScreen.storyboard */; };
 		01B1C5B12A53BC74003B200A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1C5B02A53BC74003B200A /* main.m */; };
+		01B1C5BA2A53BCF8003B200A /* Memo.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1C5B92A53BCF8003B200A /* Memo.m */; };
+		01B647292A53D86300AA161C /* MemoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B647282A53D86300AA161C /* MemoListTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		01B1C5AD2A53BC74003B200A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01B1C5AF2A53BC74003B200A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01B1C5B02A53BC74003B200A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		01B1C5B82A53BCF8003B200A /* Memo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Memo.h; sourceTree = "<group>"; };
+		01B1C5B92A53BCF8003B200A /* Memo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Memo.m; sourceTree = "<group>"; };
+		01B647272A53D86300AA161C /* MemoListTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemoListTableViewController.h; sourceTree = "<group>"; };
+		01B647282A53D86300AA161C /* MemoListTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoListTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,8 @@
 				01B1C59F2A53BC71003B200A /* AppDelegate.m */,
 				01B1C5A12A53BC71003B200A /* SceneDelegate.h */,
 				01B1C5A22A53BC71003B200A /* SceneDelegate.m */,
+				01B647262A53D83A00AA161C /* Controller */,
+				01B1C5B72A53BCE3003B200A /* Model */,
 				01B1C5A72A53BC71003B200A /* Main.storyboard */,
 				01B1C5AA2A53BC74003B200A /* Assets.xcassets */,
 				01B1C5AC2A53BC74003B200A /* LaunchScreen.storyboard */,
@@ -69,6 +77,24 @@
 				01B1C5B02A53BC74003B200A /* main.m */,
 			);
 			path = MemoApp;
+			sourceTree = "<group>";
+		};
+		01B1C5B72A53BCE3003B200A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				01B1C5B82A53BCF8003B200A /* Memo.h */,
+				01B1C5B92A53BCF8003B200A /* Memo.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		01B647262A53D83A00AA161C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				01B647272A53D86300AA161C /* MemoListTableViewController.h */,
+				01B647282A53D86300AA161C /* MemoListTableViewController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +170,8 @@
 				01B1C5A02A53BC71003B200A /* AppDelegate.m in Sources */,
 				01B1C5B12A53BC74003B200A /* main.m in Sources */,
 				01B1C5A32A53BC71003B200A /* SceneDelegate.m in Sources */,
+				01B1C5BA2A53BCF8003B200A /* Memo.m in Sources */,
+				01B647292A53D86300AA161C /* MemoListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
