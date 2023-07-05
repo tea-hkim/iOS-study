@@ -166,7 +166,6 @@ class CustomAlertView: UIViewController {
     
     @objc
     private func confirmButtonTapped() {
-        print("✅✅✅✅✅✅✅ confirmButton Tapped ✅✅✅✅✅✅✅")
         self.dismiss(animated: false) {[weak self] in
             guard let self else { return }
             self.delegate?.confirmAction()
@@ -175,7 +174,6 @@ class CustomAlertView: UIViewController {
     
     @objc
     private func cancelButtonTapped() {
-        print("❎❎❎❎❎❎ cancelButton Tapped ❎❎❎❎❎❎")
         self.dismiss(animated: false) {[weak self] in
             guard let self else { return }
             self.delegate?.cancelAction()
