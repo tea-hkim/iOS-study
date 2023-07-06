@@ -11,25 +11,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        let imageArray = ["splash_1.jpeg","splash_2.jpeg","splash_3.jpeg"]
-
-        let RandomNumber = Int(arc4random_uniform(UInt32(imageArray.count)))
-        let image = UIImage.init(named: "\(imageArray[RandomNumber])")
-
-        let imageView = UIImageView.init(image: image)
-        imageView.frame = UIScreen.main.bounds
-
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
 
-        window?.rootViewController = UIStoryboard(name: "LaunchScreen", bundle: nil).instantiateInitialViewController()
-        window?.rootViewController?.view.addSubview(imageView)
-        window?.rootViewController?.view.bringSubviewToFront(imageView)
+        window?.rootViewController = LaunchScreenViewController()
         window?.makeKeyAndVisible()
-
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2.5) {
             self.window?.rootViewController = TabbarController()
             self.window?.makeKeyAndVisible()
         }
