@@ -14,12 +14,11 @@ final class LaunchScreenViewController: UIViewController {
     private var imageView = UIImageView()
     private let activityIndicator = UIActivityIndicatorView()
     
-    private let LaunchImageUrl: [String] = [
+    private let imageUrlList: [String] = [
         "https://image.goodchoice.kr/images/app/splash/splash_230602_1.jpg",
         "https://image.goodchoice.kr/images/app/splash/splash_230602_2.jpg",
         "https://image.goodchoice.kr/images/app/splash/splash_230602_4.jpg"
     ]
-    
     
     // MARK: - Lifecycle
     
@@ -30,21 +29,13 @@ final class LaunchScreenViewController: UIViewController {
         
         // indicator Loading
         activityIndicator.startAnimating()
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) { [weak self] in
-            guard let self else { return }
-            self.activityIndicator.stopAnimating()
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) { [weak self] in
+            self?.activityIndicator.stopAnimating()
             guard let self else { return }
-            self.activityIndicator.startAnimating()
-            changeImage()
-        }
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) { [weak self] in
-            guard let self else { return }
-            self.activityIndicator.stopAnimating()
+            getImage()
         }
     }
     
@@ -80,17 +71,23 @@ final class LaunchScreenViewController: UIViewController {
         ])
     }
     
-    func changeImage() {
-        let imageArray = ["splash_1.jpeg","splash_2.jpeg","splash_3.jpeg"]
+    func getImage() {
+        let randomNumber = Int(arc4random_uniform(UInt32(imageUrlList.count)))
+        let randomImageUrl = imageUrlList[randomNumber]
+        guard let url = URL(string: randomImageUrl) else { return }
         
-        let RandomNumber = Int(arc4random_uniform(UInt32(imageArray.count)))
-        let image = UIImage.init(named: "\(imageArray[RandomNumber])")
-        let newImageView = UIImageView.init(image: image)
-        newImageView.frame = UIScreen.main.bounds
         
-        view.addSubview(newImageView)
-        view.bringSubviewToFront(newImageView)
-        view.bringSubviewToFront(activityIndicator)
+        DispatchQueue.global().async {[weak self] in
+            guard let self else { return }
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self.activityIndicator.startAnimating()
+                        self.imageView.image = image
+                    }
+                }
+            }
+        }
     }
 
 }
