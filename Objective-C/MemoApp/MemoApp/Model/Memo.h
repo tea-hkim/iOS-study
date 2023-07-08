@@ -12,11 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Memo : NSObject
 
 @property (strong, nonatomic) NSString* content;
-@property (strong, nonatomic) NSDate* date; 
+@property (strong, nonatomic) NSDate* date;
 
 - (instancetype) initWithCotent:(NSString*) content;
 
-+ (NSArray*) dummyMemoList;
+@property (strong, nonatomic, readonly, class) NSMutableArray* dummyMemoList;
 
 @end
 
