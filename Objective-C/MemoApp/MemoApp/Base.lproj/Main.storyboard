@@ -41,6 +41,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="QX5-ma-FQq" kind="show" trigger="accessoryAction" id="Za5-fo-Bfz"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -59,6 +62,82 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zIu-KV-CK2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="123" y="-44"/>
+        </scene>
+        <!--메모 보기-->
+        <scene sceneID="aCU-bF-jnN">
+            <objects>
+                <viewController id="QX5-ma-FQq" customClass="DetailViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OKQ-P3-Qw2">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Sr-5e-huQ">
+                                <rect key="frame" x="0.0" y="769" width="393" height="49"/>
+                                <items>
+                                    <barButtonItem title="Item" id="Fgy-Qf-IGQ"/>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gWH-MB-V0b">
+                                <rect key="frame" x="0.0" y="155" width="393" height="614"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="memoCell" textLabel="bMa-Z7-0C9" style="IBUITableViewCellStyleDefault" id="F72-Ni-ho4">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F72-Ni-ho4" id="rze-Gw-pSE">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bMa-Z7-0C9">
+                                                    <rect key="frame" x="20" y="0.0" width="353" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dateCell" textLabel="OL0-ov-h6E" style="IBUITableViewCellStyleDefault" id="0mj-A1-pja">
+                                        <rect key="frame" x="0.0" y="93.666667938232422" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0mj-A1-pja" id="KnL-cP-Hyt">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OL0-ov-h6E">
+                                                    <rect key="frame" x="20" y="0.0" width="353" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="QX5-ma-FQq" id="Dkz-RC-InD"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gni-EA-zwd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0Sr-5e-huQ" firstAttribute="bottom" secondItem="gni-EA-zwd" secondAttribute="bottom" id="ELN-w2-xCy"/>
+                            <constraint firstItem="0Sr-5e-huQ" firstAttribute="trailing" secondItem="gni-EA-zwd" secondAttribute="trailing" id="Kl2-Ox-N8H"/>
+                            <constraint firstItem="gWH-MB-V0b" firstAttribute="leading" secondItem="gni-EA-zwd" secondAttribute="leading" id="NE7-Qa-uMP"/>
+                            <constraint firstItem="0Sr-5e-huQ" firstAttribute="leading" secondItem="gni-EA-zwd" secondAttribute="leading" id="Pud-Tc-1r9"/>
+                            <constraint firstItem="gWH-MB-V0b" firstAttribute="top" secondItem="gni-EA-zwd" secondAttribute="top" id="W3b-yV-BuR"/>
+                            <constraint firstItem="0Sr-5e-huQ" firstAttribute="top" secondItem="gWH-MB-V0b" secondAttribute="bottom" id="iKc-W4-9Pi"/>
+                            <constraint firstItem="gni-EA-zwd" firstAttribute="trailing" secondItem="gWH-MB-V0b" secondAttribute="trailing" id="iOb-EA-c0E"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="메모 보기" id="iBY-c3-qre"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3VK-Og-fax" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1169" y="-44"/>
         </scene>
         <!--새 메모-->
         <scene sceneID="CEZ-nL-dB8">
@@ -104,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hMW-ea-M31" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2196" y="-44"/>
+            <point key="canvasLocation" x="2115" y="-782"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QlT-WP-Jff">
@@ -138,7 +217,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f9a-KE-Tb4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1231" y="-44"/>
+            <point key="canvasLocation" x="1170" y="-782"/>
         </scene>
     </scenes>
     <resources>

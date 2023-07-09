@@ -16,6 +16,7 @@
 		01B1C5BA2A53BCF8003B200A /* Memo.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1C5B92A53BCF8003B200A /* Memo.m */; };
 		01B647292A53D86300AA161C /* MemoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B647282A53D86300AA161C /* MemoListTableViewController.m */; };
 		903F7AB42A59A8E6001BA606 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 903F7AB32A59A8E6001BA606 /* ComposeViewController.m */; };
+		9086010D2A5AFF87009BD62D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9086010C2A5AFF87009BD62D /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		01B647282A53D86300AA161C /* MemoListTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoListTableViewController.m; sourceTree = "<group>"; };
 		903F7AB22A59A8E6001BA606 /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
 		903F7AB32A59A8E6001BA606 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
+		9086010B2A5AFF87009BD62D /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		9086010C2A5AFF87009BD62D /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,8 @@
 				01B647282A53D86300AA161C /* MemoListTableViewController.m */,
 				903F7AB22A59A8E6001BA606 /* ComposeViewController.h */,
 				903F7AB32A59A8E6001BA606 /* ComposeViewController.m */,
+				9086010B2A5AFF87009BD62D /* DetailViewController.h */,
+				9086010C2A5AFF87009BD62D /* DetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 				903F7AB42A59A8E6001BA606 /* ComposeViewController.m in Sources */,
 				01B1C5BA2A53BCF8003B200A /* Memo.m in Sources */,
 				01B647292A53D86300AA161C /* MemoListTableViewController.m in Sources */,
+				9086010D2A5AFF87009BD62D /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
