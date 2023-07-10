@@ -7,6 +7,7 @@
 
 #import "MemoListTableViewController.h"
 #import "Memo.h"
+#import "DetailViewController.h"
 
 @interface MemoListTableViewController ()
 
@@ -15,6 +16,16 @@
 @end
 
 @implementation MemoListTableViewController
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSLog(@"tableView cell did selected");
+    NSIndexPath* indexPath = [self.tableView indexPathForCell:(UITableViewCell*) sender];
+    if (indexPath != nil) {
+        Memo* memo = [[Memo dummyMemoList] objectAtIndex:indexPath.row];
+        DetailViewController* detailVC = (DetailViewController*) segue.destinationViewController;
+        detailVC.memo = memo;
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,6 +66,11 @@
     cell.detailTextLabel.text = [self.formatter stringFromDate:memo.date];
         
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"tableView cell did selected");
+    
 }
 
 
