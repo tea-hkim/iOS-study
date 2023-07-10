@@ -16,6 +16,7 @@
 		01B1C5BA2A53BCF8003B200A /* Memo.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B1C5B92A53BCF8003B200A /* Memo.m */; };
 		01B647292A53D86300AA161C /* MemoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B647282A53D86300AA161C /* MemoListTableViewController.m */; };
 		903F7AB42A59A8E6001BA606 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 903F7AB32A59A8E6001BA606 /* ComposeViewController.m */; };
+		905CF5BF2A5C521E007047AF /* MemoAppModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 905CF5BD2A5C521E007047AF /* MemoAppModel.xcdatamodeld */; };
 		9086010D2A5AFF87009BD62D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9086010C2A5AFF87009BD62D /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		01B647282A53D86300AA161C /* MemoListTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemoListTableViewController.m; sourceTree = "<group>"; };
 		903F7AB22A59A8E6001BA606 /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
 		903F7AB32A59A8E6001BA606 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
+		905CF5BE2A5C521E007047AF /* MemoAppModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MemoAppModel.xcdatamodel; sourceTree = "<group>"; };
 		9086010B2A5AFF87009BD62D /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		9086010C2A5AFF87009BD62D /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -77,6 +79,7 @@
 				01B647262A53D83A00AA161C /* Controller */,
 				01B1C5B72A53BCE3003B200A /* Model */,
 				01B1C5A72A53BC71003B200A /* Main.storyboard */,
+				905CF5BD2A5C521E007047AF /* MemoAppModel.xcdatamodeld */,
 				01B1C5AA2A53BC74003B200A /* Assets.xcassets */,
 				01B1C5AC2A53BC74003B200A /* LaunchScreen.storyboard */,
 				01B1C5AF2A53BC74003B200A /* Info.plist */,
@@ -178,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01B1C5A02A53BC71003B200A /* AppDelegate.m in Sources */,
+				905CF5BF2A5C521E007047AF /* MemoAppModel.xcdatamodeld in Sources */,
 				01B1C5B12A53BC74003B200A /* main.m in Sources */,
 				01B1C5A32A53BC71003B200A /* SceneDelegate.m in Sources */,
 				903F7AB42A59A8E6001BA606 /* ComposeViewController.m in Sources */,
@@ -395,6 +399,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		905CF5BD2A5C521E007047AF /* MemoAppModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				905CF5BE2A5C521E007047AF /* MemoAppModel.xcdatamodel */,
+			);
+			currentVersion = 905CF5BE2A5C521E007047AF /* MemoAppModel.xcdatamodel */;
+			path = MemoAppModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 01B1C5932A53BC71003B200A /* Project object */;
 }
