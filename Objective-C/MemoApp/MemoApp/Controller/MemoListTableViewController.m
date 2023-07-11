@@ -8,6 +8,8 @@
 #import "MemoListTableViewController.h"
 #import "Memo.h"
 #import "DetailViewController.h"
+#import "DataManager.h"
+
 
 @interface MemoListTableViewController ()
 
@@ -21,7 +23,7 @@
     NSLog(@"tableView cell did selected");
     NSIndexPath* indexPath = [self.tableView indexPathForCell:(UITableViewCell*) sender];
     if (indexPath != nil) {
-        Memo* memo = [[Memo dummyMemoList] objectAtIndex:indexPath.row];
+        Memo* memo = [[[DataManager sharedInstance] memoList] objectAtIndex:indexPath.row];
         DetailViewController* detailVC = (DetailViewController*) segue.destinationViewController;
         detailVC.memo = memo;
     }
@@ -43,6 +45,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    
+    [[DataManager sharedInstance] fetchMemo];
     [self.tableView reloadData];
 }
 
@@ -54,14 +58,14 @@
 //}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[Memo dummyMemoList] count];
+    return [[[DataManager sharedInstance] memoList] count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tableViewCell" forIndexPath:indexPath];
     
-    Memo* memo = [[Memo dummyMemoList] objectAtIndex:indexPath.row];
+    Memo* memo = [[[DataManager sharedInstance] memoList] objectAtIndex:indexPath.row];
     cell.textLabel.text = memo.content;
     cell.detailTextLabel.text = [self.formatter stringFromDate:memo.date];
         

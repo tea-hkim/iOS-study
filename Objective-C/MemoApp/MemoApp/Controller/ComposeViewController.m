@@ -7,6 +7,7 @@
 
 #import "ComposeViewController.h"
 #import "Memo.h"
+#import "DataManager.h"
 
 @interface ComposeViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *memoTextView;
@@ -25,9 +26,9 @@
 }
 - (IBAction)save:(id)sender {
     NSString* memo = self.memoTextView.text;
-    Memo* newMemo = [[Memo alloc] initWithCotent:memo];
     
-    [[Memo dummyMemoList] addObject:newMemo];
+    [[DataManager sharedInstance] addNewMemo:memo];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

@@ -17,6 +17,9 @@
 		01B647292A53D86300AA161C /* MemoListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B647282A53D86300AA161C /* MemoListTableViewController.m */; };
 		903F7AB42A59A8E6001BA606 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 903F7AB32A59A8E6001BA606 /* ComposeViewController.m */; };
 		905CF5BF2A5C521E007047AF /* MemoAppModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 905CF5BD2A5C521E007047AF /* MemoAppModel.xcdatamodeld */; };
+		906BB2492A5D903900744496 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 906BB2482A5D903900744496 /* DataManager.m */; };
+		906BB24E2A5DA42D00744496 /* Memo+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 906BB24C2A5DA42D00744496 /* Memo+CoreDataClass.m */; };
+		906BB24F2A5DA42D00744496 /* Memo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 906BB24D2A5DA42D00744496 /* Memo+CoreDataProperties.m */; };
 		9086010D2A5AFF87009BD62D /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9086010C2A5AFF87009BD62D /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +41,12 @@
 		903F7AB22A59A8E6001BA606 /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
 		903F7AB32A59A8E6001BA606 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
 		905CF5BE2A5C521E007047AF /* MemoAppModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MemoAppModel.xcdatamodel; sourceTree = "<group>"; };
+		906BB2472A5D903900744496 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		906BB2482A5D903900744496 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		906BB24A2A5DA42D00744496 /* Memo+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Memo+CoreDataProperties.h"; sourceTree = SOURCE_ROOT; };
+		906BB24B2A5DA42D00744496 /* Memo+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Memo+CoreDataClass.h"; sourceTree = SOURCE_ROOT; };
+		906BB24C2A5DA42D00744496 /* Memo+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Memo+CoreDataClass.m"; sourceTree = SOURCE_ROOT; };
+		906BB24D2A5DA42D00744496 /* Memo+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Memo+CoreDataProperties.m"; sourceTree = SOURCE_ROOT; };
 		9086010B2A5AFF87009BD62D /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		9086010C2A5AFF87009BD62D /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +81,10 @@
 		01B1C59D2A53BC71003B200A /* MemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				906BB24A2A5DA42D00744496 /* Memo+CoreDataProperties.h */,
+				906BB24B2A5DA42D00744496 /* Memo+CoreDataClass.h */,
+				906BB24C2A5DA42D00744496 /* Memo+CoreDataClass.m */,
+				906BB24D2A5DA42D00744496 /* Memo+CoreDataProperties.m */,
 				01B1C59E2A53BC71003B200A /* AppDelegate.h */,
 				01B1C59F2A53BC71003B200A /* AppDelegate.m */,
 				01B1C5A12A53BC71003B200A /* SceneDelegate.h */,
@@ -93,6 +106,8 @@
 			children = (
 				01B1C5B82A53BCF8003B200A /* Memo.h */,
 				01B1C5B92A53BCF8003B200A /* Memo.m */,
+				906BB2472A5D903900744496 /* DataManager.h */,
+				906BB2482A5D903900744496 /* DataManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -183,11 +198,14 @@
 				01B1C5A02A53BC71003B200A /* AppDelegate.m in Sources */,
 				905CF5BF2A5C521E007047AF /* MemoAppModel.xcdatamodeld in Sources */,
 				01B1C5B12A53BC74003B200A /* main.m in Sources */,
+				906BB24F2A5DA42D00744496 /* Memo+CoreDataProperties.m in Sources */,
 				01B1C5A32A53BC71003B200A /* SceneDelegate.m in Sources */,
 				903F7AB42A59A8E6001BA606 /* ComposeViewController.m in Sources */,
 				01B1C5BA2A53BCF8003B200A /* Memo.m in Sources */,
 				01B647292A53D86300AA161C /* MemoListTableViewController.m in Sources */,
+				906BB2492A5D903900744496 /* DataManager.m in Sources */,
 				9086010D2A5AFF87009BD62D /* DetailViewController.m in Sources */,
+				906BB24E2A5DA42D00744496 /* Memo+CoreDataClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +361,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Nick.MemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -370,6 +389,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Nick.MemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
