@@ -6,15 +6,22 @@
 //
 
 import UIKit
+import SnapKit
+import Then
 
 final class LaunchScreenViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var imageView = UIImageView()
-    private let activityIndicator = UIActivityIndicatorView()
+    private var imageView = UIImageView().then {
+        $0.image = UIImage(named: "LaunchImage")
+        $0.contentMode = .scaleAspectFill
+    }
+    private let activityIndicator = UIActivityIndicatorView().then {
+        $0.color = .systemPink
+    }
     
-    private let imageUrlList: [String] = [
+    private let imageUrlStringList: [String] = [
         "https://image.goodchoice.kr/images/app/splash/splash_230602_1.jpg",
         "https://image.goodchoice.kr/images/app/splash/splash_230602_2.jpg",
         "https://image.goodchoice.kr/images/app/splash/splash_230602_4.jpg"
@@ -24,10 +31,8 @@ final class LaunchScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
         setConstraints()
         
-        // indicator Loading
         activityIndicator.startAnimating()
     }
     
@@ -45,37 +50,25 @@ final class LaunchScreenViewController: UIViewController {
     
     // MARK: - Fucntions
     
-    private func configureUI() {
-        imageView.image = UIImage(named: "LaunchImage")
-        imageView.contentMode = .scaleAspectFill
-        activityIndicator.color = .systemPink
-    }
-    
     private func setConstraints() {
         view.addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        
         view.addSubview(activityIndicator)
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: view.topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
-            activityIndicator.heightAnchor.constraint(equalToConstant: 25),
-            activityIndicator.widthAnchor.constraint(equalToConstant: 25),
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        ])
+        imageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        activityIndicator.snp.makeConstraints { make in
+            make.height.width.equalTo(25)
+            make.center.equalToSuperview()
+        }
+        
     }
     
     func getImage() {
-        let randomNumber = Int(arc4random_uniform(UInt32(imageUrlList.count)))
-        let randomImageUrl = imageUrlList[randomNumber]
+        let randomNumber = Int.random(in: 0..<imageUrlStringList.count)
+        let randomImageUrl = imageUrlStringList[randomNumber]
         guard let url = URL(string: randomImageUrl) else { return }
-        
         
         DispatchQueue.global().async {[weak self] in
             guard let self else { return }
