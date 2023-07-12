@@ -43,6 +43,13 @@
     [self saveContext];
 }
 
+- (void) deleteMemo: (Memo*)memo {
+    if (memo != nil) {
+        [self.mainContext deleteObject: memo];
+        [self saveContext];
+    }
+}
+
 
 #pragma mark - Core Data stack
 
