@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LosingRockPaperScissors" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rock" translatesAutoresizingMaskIntoConstraints="NO" id="DVJ-Ty-NZq">
+                                <rect key="frame" x="106.66666666666669" y="194" width="180" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DVJ-Ty-NZq" secondAttribute="height" multiplier="1:1" id="3Oe-kT-nIL"/>
+                                    <constraint firstAttribute="width" constant="180" id="czu-et-hPj"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="😵‍💫 지는 가위바위보" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8a4-jG-N0W">
+                                <rect key="frame" x="40" y="79" width="313" height="28.666666666666671"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="Ib8-bG-kG6">
+                                <rect key="frame" x="40" y="434" width="313" height="98.333333333333371"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rock" translatesAutoresizingMaskIntoConstraints="NO" id="TmB-yD-qhx">
+                                        <rect key="frame" x="0.0" y="0.0" width="98.333333333333329" height="98.333333333333329"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="TmB-yD-qhx" secondAttribute="height" multiplier="1:1" id="iO7-G1-qKy"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Paper" translatesAutoresizingMaskIntoConstraints="NO" id="xxa-jL-DhU">
+                                        <rect key="frame" x="107.33333333333334" y="0.0" width="98.333333333333343" height="98.333333333333329"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Scissors" translatesAutoresizingMaskIntoConstraints="NO" id="d8l-9V-4Ld">
+                                        <rect key="frame" x="214.66666666666666" y="0.0" width="98.333333333333343" height="98.333333333333329"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bDD-Fo-rQX">
+                                <rect key="frame" x="40" y="552.33333333333337" width="313" height="35.666666666666629"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="시작하기">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="startButtoTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cBv-uE-aCY"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결과" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZi-Ox-7GY">
+                                <rect key="frame" x="40" y="137.66666666666666" width="313" height="26.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8a4-jG-N0W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="0q1-G7-wgC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8a4-jG-N0W" secondAttribute="trailing" constant="40" id="2Ea-Wr-Tr5"/>
+                            <constraint firstItem="UZi-Ox-7GY" firstAttribute="top" secondItem="8a4-jG-N0W" secondAttribute="bottom" constant="30" id="4rk-rj-9mE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ib8-bG-kG6" secondAttribute="trailing" constant="40" id="7Bq-fb-LVh"/>
+                            <constraint firstItem="UZi-Ox-7GY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="A5m-78-pzA"/>
+                            <constraint firstItem="DVJ-Ty-NZq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Nat-wJ-slM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bDD-Fo-rQX" secondAttribute="trailing" constant="40" id="WbT-O3-JSZ"/>
+                            <constraint firstItem="bDD-Fo-rQX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="aue-Og-9mG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UZi-Ox-7GY" secondAttribute="trailing" constant="40" id="ebH-DD-tdG"/>
+                            <constraint firstItem="DVJ-Ty-NZq" firstAttribute="top" secondItem="UZi-Ox-7GY" secondAttribute="bottom" constant="30" id="got-gB-W6m"/>
+                            <constraint firstItem="Ib8-bG-kG6" firstAttribute="top" secondItem="DVJ-Ty-NZq" secondAttribute="bottom" constant="60" id="jQc-y4-jhl"/>
+                            <constraint firstItem="8a4-jG-N0W" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="ouJ-3I-BuH"/>
+                            <constraint firstItem="bDD-Fo-rQX" firstAttribute="top" secondItem="Ib8-bG-kG6" secondAttribute="bottom" constant="20" id="r0i-Tp-OwY"/>
+                            <constraint firstItem="Ib8-bG-kG6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="u8Z-ai-6sv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="computerRPS" destination="DVJ-Ty-NZq" id="D2h-en-FTt"/>
+                        <outlet property="paperButton" destination="d8l-9V-4Ld" id="UlN-8b-qIU"/>
+                        <outlet property="resultLabel" destination="UZi-Ox-7GY" id="FGT-3B-aZj"/>
+                        <outlet property="rockButton" destination="xxa-jL-DhU" id="xWl-Jj-poP"/>
+                        <outlet property="scissorsButton" destination="TmB-yD-qhx" id="2AV-AV-7Of"/>
+                        <outlet property="startButton" destination="bDD-Fo-rQX" id="Vgu-LJ-MCo"/>
+                        <outlet property="titleLabel" destination="8a4-jG-N0W" id="fEt-Cb-QxL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75.572519083969468" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Paper" width="400.5" height="401"/>
+        <image name="Rock" width="401" height="401"/>
+        <image name="Scissors" width="401" height="401"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
