@@ -28,7 +28,9 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        startGame()
         setAttribute()
+        rpsButtonTapped()
     }
     
     // MARK: - Function
@@ -49,7 +51,7 @@ final class ViewController: UIViewController {
     
     private func startGame() {
         changeCompueterRPS()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.timer?.invalidate()
             self.timer = nil
             self.startButton.isHidden = false
@@ -67,6 +69,21 @@ final class ViewController: UIViewController {
         resultLabel.text = ""
     }
     
+    private func rpsButtonTapped() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        [rockButton, scissorsButton, paperButton].forEach {
+            $0?.addGestureRecognizer(tapGestureRecognizer)
+            $0?.isUserInteractionEnabled = true
+        }
+    }
+    
+    @objc
+    private func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        let tappedImage = tapGestureRecognizer.view as! UIImageView
+        tappedImage.alpha = 0.2
+        print("tapped")
+    }
+    
     
     // MARK: - IBAction
     
@@ -75,6 +92,6 @@ final class ViewController: UIViewController {
         startButton.isHidden = true
     }
     
-
+    
 }
 
