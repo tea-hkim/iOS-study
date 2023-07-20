@@ -71,16 +71,22 @@ class HomeViewController: UIViewController {
                 
                 if let jsonData = data {
                     do {
-                        var set: Set<String> = []
+                        var componentTypeLabelset: Set<String> = []
+                        var moduleTypeLabelset: Set<String> = []
                         let someData = try JSONDecoder().decode(Entity.self, from: jsonData)
+                        someData.data.modules.forEach {
+                            guard let typeLabel = $0.typeLabel else { return }
+                            moduleTypeLabelset.insert(typeLabel)
+                        }
                         let componentsList = someData.data.modules.compactMap { $0.components }
                         componentsList.forEach({ componentList in
-                            componentList.compactMap {
+                            componentList.forEach {
                                 guard let typeLabel = $0.typeLabel else { return }
-                                set.insert(typeLabel)
+                                componentTypeLabelset.insert(typeLabel)
                             }
                         })
-                        print(set)
+                        print(componentTypeLabelset)
+                        print(moduleTypeLabelset)
                         
                     } catch {
                         return print("⚠️JSON Decoding Error ", error.localizedDescription)

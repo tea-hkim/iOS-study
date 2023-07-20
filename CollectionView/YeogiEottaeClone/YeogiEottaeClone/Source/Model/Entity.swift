@@ -29,7 +29,7 @@ struct Module: Codable {
     let id, seq: Int
     let name: String
     let type: Int
-    let typeLabel: String
+    let typeLabel: String?
     let componentCount: Int
     let components: [Component]?
 
