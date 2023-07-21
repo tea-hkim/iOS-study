@@ -18,12 +18,14 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
     }
     
     // MARK: - Functions
     
     @IBAction func buttonTapped(_ sender: UIButton) {
-        let webVC = KAKAOWebViewController()
+//        let webVC = KAKAOWebViewController()
+        let webVC = WebViewController()
         webVC.modalPresentationStyle = .fullScreen
         present(webVC, animated: true)
     }
