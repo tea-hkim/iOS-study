@@ -19,7 +19,7 @@ enum CollectionViewSection: Hashable {
 }
 
 enum CollectionViewItem: Hashable {
-    case categroy
+    case categroy(Component)
     case cityCategory
     case bannerImage
     case iconList
@@ -34,6 +34,8 @@ class HomeViewController: UIViewController {
     
     // MARK: - Property
     
+    private var dataSource: UICollectionViewDiffableDataSource<CollectionViewSection, CollectionViewItem>?
+    private var currentSnapshot: NSDiffableDataSourceSnapshot<CollectionViewSection, CollectionViewItem>?
     
     // MARK: - Lifecycle
     
@@ -74,20 +76,15 @@ class HomeViewController: UIViewController {
                         var componentTypeLabelset: Set<String> = []
                         var moduleTypeLabelset: Set<String> = []
                         let someData = try JSONDecoder().decode(Entity.self, from: jsonData)
-                        someData.data.modules.forEach {
-                            guard let typeLabel = $0.typeLabel else { return }
-                            moduleTypeLabelset.insert(typeLabel)
-                        }
-                        let componentsList = someData.data.modules.compactMap { $0.components }
-                        componentsList.forEach({ componentList in
-                            componentList.forEach {
-                                guard let typeLabel = $0.typeLabel else { return }
-                                componentTypeLabelset.insert(typeLabel)
+                        print(someData.data.modules[2].components?.forEach {
+                            print($0.name)
+                            if let imageUrl = $0.image?.contents[0].value {
+                                print(imageUrl)
+                            } else {
+                                print($0)
                             }
-                        })
-                        print(componentTypeLabelset)
-                        print(moduleTypeLabelset)
-                        
+                            
+                        } )
                     } catch {
                         return print("⚠️JSON Decoding Error ", error.localizedDescription)
                     }
@@ -102,25 +99,52 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController {
     
-    private func configureDataSource() {
+    func createLayout() -> UICollectionViewLayout {
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 14
         
+        return UICollectionViewCompositionalLayout {[weak self] sectionIndex, _ in
+            let section = self?.dataSource?.sectionIdentifier(for: sectionIndex)
+            switch section {
+            case .categoryDomestic:
+                return self?.createCategorySection()
+            default:
+                return self?.createCategorySection()
+            }
+        }
+    }
+    
+    private func createCategorySection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(320))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 4)
+        let section = NSCollectionLayoutSection(group: group)
+        return section
+    }
+    
+    private func configureDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<CollectionViewSection, CollectionViewItem>(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in
+            switch itemIdentifier {
+            case .categroy(let component):
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.id, for: indexPath) as? CategoryCollectionViewCell
+                cell?.configureComponent(imageUrlString: component.image?.contents[0].value, title: component.name)
+                return cell
+            default:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.id, for: indexPath) as? CategoryCollectionViewCell
+                return cell
+            }
+        })
+        
+        currentSnapshot = NSDiffableDataSourceSnapshot<CollectionViewSection, CollectionViewItem>()
+        
+        if let currentSnapshot {
+            dataSource?.apply(currentSnapshot)
+        }
     }
     
 }
 
 
-// 출처 : https://www.hackingwithswift.com/example-code/uikit/how-to-load-a-remote-image-url-into-uiimageview
 
-extension UIImageView {
-    func load(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            }
-        }
-    }
-}
