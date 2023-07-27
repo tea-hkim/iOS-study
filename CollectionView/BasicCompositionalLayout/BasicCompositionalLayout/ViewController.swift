@@ -25,14 +25,14 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         
         setCollecionView()
-        setLayout()
+        setConstraints()
     }
     
 
     
     // MARK: - Functions
     
-    private func setLayout() {
+    private func setConstraints() {
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()

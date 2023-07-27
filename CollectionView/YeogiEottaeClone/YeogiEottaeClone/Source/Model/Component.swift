@@ -67,9 +67,7 @@ enum ViewTypeLabel: String, Decodable {
 
 // MARK: - Image
 struct Image: Decodable, Hashable {
-    let id, seq: Int
     let imageRatio: ImageRatio?
-    let viewType: Int
     let viewTypeLabel: ViewTypeLabel
     let contents: [Content]
     
@@ -95,8 +93,4 @@ struct ProductContent: Decodable, Hashable {
     let id, seq, type: Int
     let typeLabel: TypeLabel
     let landingValue: String
-}
-
-enum MemberTypeLabelEnum: String, Codable {
-    case 전체 = "전체"
 }

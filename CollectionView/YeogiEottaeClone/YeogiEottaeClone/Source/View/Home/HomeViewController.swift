@@ -8,14 +8,14 @@
 import UIKit
 
 enum CollectionViewSection: Hashable {
-    case categoryDomestic(UIImage)
-    case categoryOversea(UIImage)
+    case categoryDomestic
+    case categoryOversea
     case bannerMarketing
     case couponEvent
-    case hotelSale(String)
-    case poularPansion(String)
-    case city(String)
-    case ticketPlusHotel(String)
+    case hotelSale
+    case poularPansion
+    case city
+    case ticketPlusHotel
 }
 
 enum CollectionViewItem: Hashable {
@@ -29,13 +29,23 @@ class HomeViewController: UIViewController {
     
     // MARK: - UI Property
     
-    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
+    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout()).then {
+        $0.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: CategoryCollectionViewCell.id)
+    }
     private lazy var titleImage = UIImageView()
     
     // MARK: - Property
     
     private var dataSource: UICollectionViewDiffableDataSource<CollectionViewSection, CollectionViewItem>?
     private var currentSnapshot: NSDiffableDataSourceSnapshot<CollectionViewSection, CollectionViewItem>?
+    private var moduleList: [Module]? {
+        didSet {
+            DispatchQueue.main.async {
+                self.setSnapshot()
+                self.collectionView.reloadData()
+            }
+        }
+    }
     
     // MARK: - Lifecycle
     
@@ -45,16 +55,15 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .white
         configureHierachy()
         dataTask()
+        configureDataSource()
     }
     
     // MARK: - UI Function
     
     private func configureHierachy() {
-        view.addSubview(titleImage)
-        
-        titleImage.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalToSuperview()
-            make.height.equalTo(140)
+        view.addSubview(collectionView)
+        collectionView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
     }
     
@@ -73,18 +82,8 @@ class HomeViewController: UIViewController {
                 
                 if let jsonData = data {
                     do {
-                        var componentTypeLabelset: Set<String> = []
-                        var moduleTypeLabelset: Set<String> = []
                         let someData = try JSONDecoder().decode(Entity.self, from: jsonData)
-                        print(someData.data.modules[2].components?.forEach {
-                            print($0.name)
-                            if let imageUrl = $0.image?.contents[0].value {
-                                print(imageUrl)
-                            } else {
-                                print($0)
-                            }
-                            
-                        } )
+                        self.moduleList = someData.data.modules
                     } catch {
                         return print("⚠️JSON Decoding Error ", error.localizedDescription)
                     }
@@ -92,7 +91,7 @@ class HomeViewController: UIViewController {
             }.resume()
         }
     }
-
+    
 }
 
 // MARK: - Configure CollectionView
@@ -115,11 +114,12 @@ extension HomeViewController {
     }
     
     private func createCategorySection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let itemCount: CGFloat = 4
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0/itemCount), heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 4, leading: 4, bottom: 4, trailing: 4)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(320))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: 4)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.1))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: Int(itemCount))
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
         let section = NSCollectionLayoutSection(group: group)
         return section
     }
@@ -137,8 +137,19 @@ extension HomeViewController {
             }
         })
         
-        currentSnapshot = NSDiffableDataSourceSnapshot<CollectionViewSection, CollectionViewItem>()
+        setSnapshot()
+    }
+    
+    private func setSnapshot() {
+        let categorySection = CollectionViewSection.categoryDomestic
         
+        currentSnapshot = NSDiffableDataSourceSnapshot<CollectionViewSection, CollectionViewItem>()
+        currentSnapshot?.appendSections([categorySection])
+        
+        if let componentList = moduleList?[2].components {
+            let catetgoryList = componentList.map { CollectionViewItem.categroy($0) }
+            currentSnapshot?.appendItems(catetgoryList, toSection: categorySection)
+        }
         if let currentSnapshot {
             dataSource?.apply(currentSnapshot)
         }

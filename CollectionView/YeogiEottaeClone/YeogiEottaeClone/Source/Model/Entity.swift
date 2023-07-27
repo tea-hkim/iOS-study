@@ -18,7 +18,6 @@ struct DataClass: Decodable {
     let id: Int
     let name: String
     let type: Int
-    let typeLabel: MemberTypeLabelEnum
     let moduleCount: Int
     let modules: [Module]
     let fallback: Bool

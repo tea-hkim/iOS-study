@@ -9,11 +9,11 @@ import UIKit
 import SnapKit
 import Then
 
-class CategoryDomesticCollectionViewCell: UICollectionViewCell {
+class CategoryCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Property
     
-    static let id = "CategoryDomesticCollectionViewCell"
+    static let id = "CategoryCollectionViewCell"
     
     private let imageView = UIImageView().then {
         $0.layer.cornerRadius = 5
@@ -21,7 +21,8 @@ class CategoryDomesticCollectionViewCell: UICollectionViewCell {
     }
     
     private let titleLabel = UILabel().then {
-        $0.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        $0.textAlignment = .center
+        $0.font = UIFont.systemFont(ofSize: 12, weight: .regular)
     }
     
     // MARK: - Lifecycle
@@ -41,21 +42,26 @@ class CategoryDomesticCollectionViewCell: UICollectionViewCell {
         }
         
         imageView.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalToSuperview()
-            make.height.equalTo(50)
+            make.top.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.height.width.equalTo(35)
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(10)
-            make.horizontalEdges.bottom.equalToSuperview()
+            make.top.equalTo(imageView.snp.bottom)
+            make.horizontalEdges.equalToSuperview()
         }
     }
     
-    private func configureComponent(imageUrlString: String?, title: String?) {
+    internal func configureComponent(imageUrlString: String?, title: String?) {
         // TODO: Error 처리하기
         guard let imageUrlString else { return }
         guard let imageUrl = URL(string: imageUrlString) else { return }
-        imageView.load(url: imageUrl)
+        if imageUrlString.contains(".svg") {
+            imageView.loadSVG(url: imageUrl)
+        } else {
+            imageView.load(url: imageUrl)
+        }
         titleLabel.text = title
     }
     
