@@ -12,7 +12,9 @@ class CategoryHeaderView: UICollectionReusableView {
     // MARK: - Property
     
     static let id = "CategoryHeaderView"
-    private let imageView = UIImageView()
+    private let imageView = UIImageView().then { imageView in
+        imageView.contentMode = .scaleAspectFit
+    }
     
     // MARK: - Lifecycle
     
@@ -28,9 +30,7 @@ class CategoryHeaderView: UICollectionReusableView {
     private func configureHierachy() {
         addSubview(imageView)
         imageView.snp.makeConstraints { make in
-            make.horizontalEdges.equalToSuperview()
-            make.centerY.equalToSuperview()
-            make.height.equalTo(80)
+            make.edges.equalToSuperview()
         }
     }
     
