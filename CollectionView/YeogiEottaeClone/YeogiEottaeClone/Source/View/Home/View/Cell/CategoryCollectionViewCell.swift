@@ -21,8 +21,9 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     }
     
     private let titleLabel = UILabel().then {
+        $0.alpha = 0.9
         $0.textAlignment = .center
-        $0.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        $0.font = UIFont.systemFont(ofSize: 12, weight: .medium)
     }
     
     // MARK: - Lifecycle

@@ -106,7 +106,6 @@
 		014C588A2A64DBAB003F035C /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				014C588D2A64F6A8003F035C /* CategoryHeaderView.swift */,
 				014C588B2A64E035003F035C /* CategoryCollectionViewCell.swift */,
 			);
 			path = Cell;
@@ -117,6 +116,7 @@
 			children = (
 				014C588A2A64DBAB003F035C /* Cell */,
 				019999042A495C7D0059C9FA /* HomeViewController.swift */,
+				014C588D2A64F6A8003F035C /* CategoryHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

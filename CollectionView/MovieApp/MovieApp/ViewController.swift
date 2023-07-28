@@ -19,7 +19,7 @@ enum Section: Hashable {
 enum Item: Hashable {
     case normal(Content)
     case bigImage(Movie)
-    case list(Movie)
+    case list(Movie)
 }
 
 class ViewController: UIViewController {

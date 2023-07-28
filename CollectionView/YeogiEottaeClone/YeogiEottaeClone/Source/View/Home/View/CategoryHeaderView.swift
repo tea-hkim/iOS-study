@@ -18,14 +18,24 @@ class CategoryHeaderView: UICollectionReusableView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configureHierachy()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    internal func configureComponent(imageUrlString: String?) {
-        guard let imageUrlString else { return }
+    private func configureHierachy() {
+        addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.horizontalEdges.equalToSuperview()
+            make.centerY.equalToSuperview()
+            make.height.equalTo(80)
+        }
+    }
+    
+    internal func configureComponent(imageUrlString: String) {
+        // TODO: 이미지를 불러오지 못한 경우 에러 처리하기
         guard let imageUrl = URL(string: imageUrlString) else { return }
         imageView.load(url: imageUrl)
     }
