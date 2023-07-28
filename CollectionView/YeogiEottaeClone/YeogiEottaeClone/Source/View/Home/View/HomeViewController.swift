@@ -90,9 +90,11 @@ extension HomeViewController {
             let section = self?.dataSource?.sectionIdentifier(for: sectionIndex)
             switch section {
             case .categoryDomestic:
-                return self?.createCategorySection()
+                return self?.createCategorySection(isOverSea: false)
+            case .categoryOversea:
+                return self?.createCategorySection(isOverSea: true)
             default:
-                return self?.createCategorySection()
+                return self?.createCategorySection(isOverSea: true)
             }
         }
     }
@@ -117,6 +119,8 @@ extension HomeViewController {
             switch section {
             case .categoryDomestic(let headerImageUrlString):
                 (header as? CategoryHeaderView)?.configureComponent(imageUrlString: headerImageUrlString)
+            case .categoryOversea(let headerImageUrlString):
+                (header as? CategoryHeaderView)?.configureComponent(imageUrlString: headerImageUrlString)
             default: break
             }
             
@@ -125,17 +129,26 @@ extension HomeViewController {
     }
     
     private func setSnapshot() {
-        guard let viewModel else { return }
-        guard let headerImageUrlString = viewModel.moduleList?[1].components?.first?.image?.contents.first?.value else { return }
-        let categorySection = CollectionViewSection.categoryDomestic(headerImageUrlString)
+        guard let modules = viewModel?.moduleList else { return }
         
         currentSnapshot = NSDiffableDataSourceSnapshot<CollectionViewSection, CollectionViewItem>()
-        currentSnapshot?.appendSections([categorySection])
         
-        if let componentList = viewModel.moduleList?[2].components {
+        guard let headerImageUrlString = modules[1].components?.first?.image?.contents.first?.value else { return }
+        let categoryDomesticSection = CollectionViewSection.categoryDomestic(headerImageUrlString)
+        currentSnapshot?.appendSections([categoryDomesticSection])
+        if let componentList = modules[2].components {
             let catetgoryList = componentList.map { CollectionViewItem.categroy($0) }
-            currentSnapshot?.appendItems(catetgoryList, toSection: categorySection)
+            currentSnapshot?.appendItems(catetgoryList, toSection: categoryDomesticSection)
         }
+        
+        guard let overseaHeaderImageUrlString = modules[3].components?.first?.image?.contents.first?.value else { return }
+        let categoryOverseaSection = CollectionViewSection.categoryOversea(overseaHeaderImageUrlString)
+        currentSnapshot?.appendSections([categoryOverseaSection])
+        if let componentList = modules[4].components {
+            let catetgoryList = componentList.map { CollectionViewItem.categroy($0) }
+            currentSnapshot?.appendItems(catetgoryList, toSection: categoryOverseaSection)
+        }
+        
         if let currentSnapshot {
             dataSource?.apply(currentSnapshot)
         }
@@ -147,17 +160,18 @@ extension HomeViewController {
 
 extension HomeViewController {
     
-    private func createCategorySection() -> NSCollectionLayoutSection {
+    private func createCategorySection(isOverSea: Bool) -> NSCollectionLayoutSection {
         let itemCount: CGFloat = 4
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0/itemCount), heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.09))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, repeatingSubitem: item, count: Int(itemCount))
         group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 0)
+        section.interGroupSpacing = 15
+        section.contentInsets = NSDirectionalEdgeInsets(top: isOverSea ? 0 : 20, leading: 0, bottom: isOverSea ? 0 : 10, trailing: 0)
         
-        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.1))
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(isOverSea ? 0.05 : 0.1))
         let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
         section.boundarySupplementaryItems = [sectionHeader]
         

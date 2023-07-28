@@ -9,9 +9,7 @@ import Foundation
 
 // MARK: - Module
 struct Module: Decodable {
-    let id, seq: Int
     let name: String
-    let type: Int
     let typeLabel: String?
     let components: [Component]?
 }
