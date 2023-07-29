@@ -90,3 +90,7 @@ fastlane/test_output
 iOSInjectionProject/
 
 .DS_Store
+Const
+
+
+MVC/Climate/Climate/Const.swift
