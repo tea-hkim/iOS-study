@@ -28,6 +28,7 @@
 		0199990E2A495E000059C9FA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199990D2A495E000059C9FA /* ProfileViewController.swift */; };
 		019999132A4973DA0059C9FA /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019999122A4973DA0059C9FA /* TabbarController.swift */; };
 		01B6472F2A53F7B100AA161C /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B6472E2A53F7B100AA161C /* LaunchScreenViewController.swift */; };
+		01D677D92A7741D00056862E /* Preview+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D677D82A7741D00056862E /* Preview+.swift */; };
 		01E9837F2A738FCE0065D092 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 01E9837E2A738FCE0065D092 /* Lottie */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		0199990D2A495E000059C9FA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		019999122A4973DA0059C9FA /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		01B6472E2A53F7B100AA161C /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		01D677D82A7741D00056862E /* Preview+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preview+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				018369F92A6E115B00F4D822 /* UIImageView+.swift */,
+				01D677D82A7741D00056862E /* Preview+.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				018369F72A6E10A400F4D822 /* Module.swift in Sources */,
 				013D6DC52A455A1E000103E6 /* AppDelegate.swift in Sources */,
 				014C588C2A64E035003F035C /* CategoryCollectionViewCell.swift in Sources */,
+				01D677D92A7741D00056862E /* Preview+.swift in Sources */,
 				0199990A2A495DF10059C9FA /* LocationViewController.swift in Sources */,
 				01104DEA2A5D259D008DDEDB /* Entity.swift in Sources */,
 				013D6DC72A455A1E000103E6 /* SceneDelegate.swift in Sources */,

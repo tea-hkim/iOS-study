@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 enum CollectionViewSection: Hashable {
     case categoryDomestic(String)
@@ -180,5 +181,12 @@ extension HomeViewController {
     
 }
 
+// MARK: - Preview
+
+struct HomeViewControllerPreView:PreviewProvider {
+    static var previews: some View {
+        HomeViewController().toPreview()
+    }
+}
 
 
