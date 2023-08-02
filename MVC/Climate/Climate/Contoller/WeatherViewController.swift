@@ -8,7 +8,7 @@
 import UIKit
 
 final class WeatherViewController: UIViewController {
-
+    
     // MARK: - UI Components
     
     @IBOutlet weak var cityNameLabel: UILabel!
@@ -17,13 +17,15 @@ final class WeatherViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var maxTempLabel: UILabel!
     @IBOutlet weak var minTempLabel: UILabel!
+    @IBOutlet weak var backgroundImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchWeather(with: "seoul")
+        fetchBackgroundImage(with: "cloudy")
     }
-
-
+    
+    
 }
 
 // MARK: - Networking
@@ -78,5 +80,24 @@ extension WeatherViewController {
         }
     }
     
+    private func fetchBackgroundImage(with weather: String) {
+        let urlString = "\(API.imageURL)?\(weather)"
+        guard let url = URL(string: urlString) else { return }
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: url) { data, response, error in
+            if error != nil { return print(error?.localizedDescription ?? "에러 메세지") }
+            if let safeData = data {
+                DispatchQueue.global().async { [weak self] in
+                    if let image = UIImage(data: safeData) {
+                        DispatchQueue.main.async {
+                            self?.backgroundImageView.image = image
+                            self?.backgroundImageView.contentMode = .scaleAspectFill
+                        }
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
     
 }
