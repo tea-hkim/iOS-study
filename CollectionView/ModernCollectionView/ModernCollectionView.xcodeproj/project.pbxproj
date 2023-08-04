@@ -14,6 +14,7 @@
 		01E726732A7B6471009F87BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01E726712A7B6471009F87BC /* LaunchScreen.storyboard */; };
 		01E7267C2A7B66DE009F87BC /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7267B2A7B66DE009F87BC /* GridViewController.swift */; };
 		01E7267F2A7B6AF2009F87BC /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E7267E2A7B6AF2009F87BC /* TextCell.swift */; };
+		01F010552A7C926000D36AE5 /* TwoColumnViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F010542A7C926000D36AE5 /* TwoColumnViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		01E726742A7B6471009F87BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01E7267B2A7B66DE009F87BC /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		01E7267E2A7B6AF2009F87BC /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
+		01F010542A7C926000D36AE5 /* TwoColumnViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoColumnViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				01E7267B2A7B66DE009F87BC /* GridViewController.swift */,
+				01F010542A7C926000D36AE5 /* TwoColumnViewController.swift */,
 			);
 			path = "Basic ViewController";
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				01E7267F2A7B6AF2009F87BC /* TextCell.swift in Sources */,
+				01F010552A7C926000D36AE5 /* TwoColumnViewController.swift in Sources */,
 				01E7267C2A7B66DE009F87BC /* GridViewController.swift in Sources */,
 				01E726672A7B646F009F87BC /* AppDelegate.swift in Sources */,
 				01E726692A7B646F009F87BC /* SceneDelegate.swift in Sources */,
