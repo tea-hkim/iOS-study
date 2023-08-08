@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		013C132E2A8216EF0078EB12 /* DistinctSectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013C132D2A8216EF0078EB12 /* DistinctSectionsViewController.swift */; };
 		01E726672A7B646F009F87BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E726662A7B646F009F87BC /* AppDelegate.swift */; };
 		01E726692A7B646F009F87BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E726682A7B646F009F87BC /* SceneDelegate.swift */; };
 		01E7266E2A7B646F009F87BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01E7266C2A7B646F009F87BC /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		013C132D2A8216EF0078EB12 /* DistinctSectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistinctSectionsViewController.swift; sourceTree = "<group>"; };
 		01E726632A7B646F009F87BC /* ModernCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModernCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01E726662A7B646F009F87BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01E726682A7B646F009F87BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			children = (
 				01E7267B2A7B66DE009F87BC /* GridViewController.swift */,
 				01F010542A7C926000D36AE5 /* TwoColumnViewController.swift */,
+				013C132D2A8216EF0078EB12 /* DistinctSectionsViewController.swift */,
 			);
 			path = "Basic ViewController";
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				013C132E2A8216EF0078EB12 /* DistinctSectionsViewController.swift in Sources */,
 				01E7267F2A7B6AF2009F87BC /* TextCell.swift in Sources */,
 				01F010552A7C926000D36AE5 /* TwoColumnViewController.swift in Sources */,
 				01E7267C2A7B66DE009F87BC /* GridViewController.swift in Sources */,
