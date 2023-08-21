@@ -21,8 +21,6 @@ final class ToDoCell: UITableViewCell {
     
     private var toDo: ToDoModel?
     
-//    weak var delegate: TodoDoneDelegate?
-    
     private lazy var checkBoxButton = UIButton(type: .system)
     private lazy var toDoLabel = UILabel()
     private lazy var dateLabel = UILabel()
@@ -77,7 +75,7 @@ final class ToDoCell: UITableViewCell {
         dateLabel.attributedText = nil
         
         resetUI()
-//        .removeAll()
+        cancellable?.cancel()
     }
     
     private func configureUI() {

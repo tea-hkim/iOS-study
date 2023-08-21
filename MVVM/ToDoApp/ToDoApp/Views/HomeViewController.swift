@@ -184,7 +184,6 @@ extension HomeViewController: UITableViewDataSource {
         let todoList = viewModel.todoSectionList[indexPath.section]
         let toDo = todoList.todos[indexPath.row]
         cell.bind(with: toDo)
-//        cell.delegate = self
         
         // TODO: - TodoDoneDelegate 컴바인과 연결
         cell.cancellable = cell.checkBtnTapSubject
