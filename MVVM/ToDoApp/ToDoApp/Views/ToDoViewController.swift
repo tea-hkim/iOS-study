@@ -155,18 +155,17 @@ extension ToDoViewController {
     
     @objc
     private func completeButtonTapped() {
+        let isDone = completeSwitch.isOn
         guard let todoTitle = toDoTextField.text else { return }
-        if todoTitle.count < 6 {
+        guard todoTitle.count > 6 else {
             warningLabel.isHidden = false
             return
         }
-        
-        let isDone = completeSwitch.isOn
-        if viewModel.todoData != nil {
+        guard viewModel.todoData == nil else {
             viewModel.editTodo(title: todoTitle, isDone: isDone)
-        } else {
-            viewModel.addTodo(title: todoTitle, isDone: isDone)
+            return
         }
+        viewModel.addTodo(title: todoTitle, isDone: isDone)
         navigationController?.popViewController(animated: true)
     }
     
