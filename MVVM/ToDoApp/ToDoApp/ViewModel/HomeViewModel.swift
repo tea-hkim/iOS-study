@@ -55,17 +55,14 @@ final class HomeViewModel {
     }
     
     func prefetchToDoList() {
-        if isLoading {
+        //TODO: Combine Operator로 처리하기
+        guard isLoading == false else { return }
+        currentPage += 1
+        guard searchTerm.isEmpty == false else  {
+            fetchToDoList(page: currentPage)
             return
-        } else {
-            if searchTerm.isEmpty {
-                currentPage += 1
-                fetchToDoList(page: currentPage)
-            } else {
-                currentPage += 1
-                searchToDoList(with: searchTerm, page: currentPage)
-            }
         }
+        searchToDoList(page: currentPage)
     }
     
     func fetchToDoList(page: Int = 1) {
@@ -78,18 +75,20 @@ final class HomeViewModel {
                 case.finished: break
                 }
             } receiveValue: { todoList in
-                if self.currentPage == 1 {
-                    ToDoStore.shared.todoItems = todoList
-                } else {
-                    ToDoStore.shared.todoItems.append(contentsOf: todoList)
-                }
+                //TODO: 로딩 버퍼 로직 변경하기
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                     self.isLoading = false
                 })
+                guard self.currentPage != 1 else {
+                    ToDoStore.shared.todoItems = todoList
+                    return
+                }
+                ToDoStore.shared.todoItems.append(contentsOf: todoList)
             }.store(in: &cancelBag)
     }
     
-    func searchToDoList(with term: String, page: Int = 1) {
+    //TODO: ViewModel 내부의 SearchTerm 변수를 그대로 사용하는 것이 옳은 방법인가
+    func searchToDoList(page: Int = 1) {
         isLoading = true
         todoAPI.searchToDoList(by: searchTerm, page: page)
             .sink { error in
@@ -128,11 +127,11 @@ final class HomeViewModel {
     func hideComplete() {
         isHideCompleted.toggle()
         
-        if isHideCompleted {
-            todoList = todoList.filter { $0.isDone == false }
-        } else {
+        guard isHideCompleted else {
             todoList = ToDoStore.shared.todoItems
+            return
         }
+        todoList = todoList.filter { $0.isDone == false }
     }
     
     func todoCompleted(_ todo: ToDoModel) {

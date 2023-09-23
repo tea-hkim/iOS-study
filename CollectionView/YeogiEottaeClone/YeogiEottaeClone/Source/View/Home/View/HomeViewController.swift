@@ -52,6 +52,7 @@ class HomeViewController: UIViewController {
         viewModel?.onCompleted = {[weak self] in
             self?.setSnapshot()
             DispatchQueue.main.async {
+                // TODO: - reloadData를 안하려고 diffableDatasource 쓰는게 아닌가?
                 self?.collectionView.reloadData()
             }
         }

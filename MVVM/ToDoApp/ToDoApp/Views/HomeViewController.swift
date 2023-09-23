@@ -64,14 +64,14 @@ final class HomeViewController: UIViewController {
         
         searchBar.textField.textDidChangePublisher
             .compactMap { $0.text }
-            .debounce(for: 1, scheduler: RunLoop.main)
+            .debounce(for: 0.5, scheduler: RunLoop.main)
             .sink(receiveValue: { [weak self] searchTerm in
-                guard let self = self else { return }
-                if searchTerm.isEmpty {
+                guard let self else { return }
+                guard !searchTerm.isEmpty else {
                     self.viewModel.fetchToDoList()
-                } else {
-                    self.viewModel.searchToDoList(with: searchTerm)
+                    return
                 }
+                self.viewModel.searchToDoList()
             })
             .store(in: &cancelBag)
     }
