@@ -25,8 +25,9 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: TodoCell.identifier, for: indexPath)
-        cell.backgroundColor = .white
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TodoCell.identifier, for: indexPath) as? TodoCell
+        else { return UITableViewCell() }
+        cell.configure(with: Todo(title: "할일 목록 \(indexPath.row)", image: nil))
         return cell
     }
 
