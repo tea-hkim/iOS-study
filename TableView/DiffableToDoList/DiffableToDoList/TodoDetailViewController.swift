@@ -17,7 +17,7 @@ class TodoDetailViewController: UIViewController {
         enum Padding {
             static let leading : CGFloat = 20
             static let trailing: CGFloat = -20
-            static let top: CGFloat = 20
+            static let top: CGFloat = 15
         }
         
         enum Size {
@@ -34,26 +34,55 @@ class TodoDetailViewController: UIViewController {
         return label
     }()
     
+    private let todoStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        stackView.distribution = .fillProportionally
+        stackView.alignment = .fill
+        return stackView
+    }()
+    
+    private let todoLabel: UILabel = {
+        let label = UILabel()
+        label.text = "할일"
+        return label
+    }()
+    
     private let todoTextField: UITextField = {
         let textField = UITextField()
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: Layout.Size.textFieldHeight))
         textField.leftView = paddingView
         textField.leftViewMode = .always
-        textField.layer.cornerRadius = 20
+        textField.layer.cornerRadius = 5
         textField.layer.borderColor = UIColor.black.cgColor
         textField.layer.borderWidth = 2
         return textField
     }()
     
-    private let todoImage: UIImageView = {
-        let imageView = UIImageView()
-        return imageView
+    private let completionStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .equalSpacing
+        stackView.alignment = .center
+        return stackView
+    }()
+    private let completeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "할일 완료"
+        return label
     }()
     
-    private let addImageButton: UIButton = {
+    private let completeSwitch: UISwitch = {
+        let todoSwitch = UISwitch()
+        todoSwitch.onTintColor = .black
+        return todoSwitch
+    }()
+    
+    private let saveButton: UIButton = {
         let button = UIButton(type: .system)
         button.layer.cornerRadius = 20
-        button.setTitle("이미지 추가하기", for: .normal)
+        button.tintColor = .white
         return button
     }()
     
@@ -79,43 +108,46 @@ extension TodoDetailViewController {
     
     private func configureUI () {
         view.backgroundColor = .white
-        
-        guard let todo else {
-            titleLabel.text = "할일 입력"
-            todoImage.image = UIImage(systemName: "photo")
-            return
-        }
-        
-        titleLabel.text = "할일 수정"
-        todoTextField.text = todo.title
-        todoImage.image = UIImage(systemName: "person")
+        titleLabel.text = todo == nil ?  "할일 입력" : "할일 수정"
+        todoTextField.text = todo?.title
+        completeSwitch.isOn = todo?.isDone ?? false
     }
     
     private func createLayout() {
-        [titleLabel, todoTextField, todoImage, addImageButton].forEach {
+        [titleLabel, todoStackView, completionStackView, saveButton].forEach {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
+        [todoLabel, todoTextField].forEach {
+            todoStackView.addArrangedSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        [completeLabel, completeSwitch].forEach {
+            completionStackView.addArrangedSubview($0)
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: Layout.Padding.top),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Layout.Padding.leading),
             titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: Layout.Padding.trailing),
             
-            todoTextField.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Layout.Padding.top),
-            todoTextField.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
-            todoTextField.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-            todoTextField.heightAnchor.constraint(equalToConstant: Layout.Size.textFieldHeight),
+            todoStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Layout.Padding.top),
+            todoStackView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            todoStackView.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            todoStackView.heightAnchor.constraint(equalToConstant: Layout.Size.textFieldHeight),
             
-            todoImage.topAnchor.constraint(equalTo: todoTextField.bottomAnchor, constant: Layout.Padding.top),
-            todoImage.centerXAnchor.constraint(equalTo: titleLabel.centerXAnchor),
-            todoImage.heightAnchor.constraint(equalToConstant: Layout.Size.imageSize),
-            todoImage.widthAnchor.constraint(equalToConstant: Layout.Size.imageSize),
-            
-            addImageButton.topAnchor.constraint(equalTo: todoImage.bottomAnchor, constant: Layout.Padding.top),
-            addImageButton.leadingAnchor.constraint(equalTo: todoImage.leadingAnchor),
-            addImageButton.trailingAnchor.constraint(equalTo: todoImage.trailingAnchor),
-            addImageButton.heightAnchor.constraint(equalToConstant: Layout.Size.textFieldHeight)
+            completionStackView.topAnchor.constraint(equalTo: todoStackView.bottomAnchor, constant: Layout.Padding.top),
+            completionStackView.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            completionStackView.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            completionStackView.heightAnchor.constraint(equalToConstant: Layout.Size.textFieldHeight),
+
+            saveButton.topAnchor.constraint(equalTo: completionStackView.bottomAnchor, constant: Layout.Padding.top),
+            saveButton.leadingAnchor.constraint(equalTo: completeLabel.leadingAnchor),
+            saveButton.trailingAnchor.constraint(equalTo: completeLabel.trailingAnchor),
+            saveButton.heightAnchor.constraint(equalToConstant: Layout.Size.textFieldHeight)
         ])
     }
         

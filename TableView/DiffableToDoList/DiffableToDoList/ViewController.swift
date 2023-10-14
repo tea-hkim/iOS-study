@@ -19,6 +19,8 @@ final class ViewController: UITableViewController {
         super.viewDidLoad()
         tableView.backgroundColor = .white
         tableView.register(TodoCell.self, forCellReuseIdentifier: TodoCell.identifier)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.title = "할일 목록"
     }
 
     // MARK: TableView Datasource
@@ -28,14 +30,15 @@ final class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 { return 5 }
-        else { return todoList.count}
+        return section == 0 ? 1 : todoList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard indexPath.section != 0 else {
             let cell = UITableViewCell()
-            cell.textLabel?.text = "wow"
+            cell.backgroundColor = .black
+            cell.textLabel?.textColor = .white
+            cell.textLabel?.text = "할일 추가하기"
             return cell
         }
         
@@ -47,14 +50,28 @@ final class ViewController: UITableViewController {
     
     // MARK: TableView Delegate
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 { return "첫번째 섹션" }
-        else { return "그냥 섹션"}
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard section != 0 else { return nil }
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 50))
+        headerView.backgroundColor = .lightGray
+        let label = UILabel()
+        label.frame = CGRect.init(x: 10, y: 0, width: headerView.frame.width-10, height: headerView.frame.height)
+        label.text = "남은 할일"
+        label.font = .systemFont(ofSize: 24)
+        headerView.addSubview(label)
+        return headerView
     }
     
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section == 0 ? 0 : 50
+    }
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = TodoDetailViewController()
-        detailVC.configure(with: todoList[indexPath.row])
+        
+        if indexPath.section != 0  {
+            detailVC.configure(with: todoList[indexPath.row])
+        }
         navigationController?.pushViewController(detailVC, animated: true)
     }
     
