@@ -1,8 +1,7 @@
 # ✏️ iOS Study
-### iOS 스터디를 남기는 공간
+### 구현 연습
 |주제|날짜|내용|
 |------|---|---|
-| MVVM |2023.04.31|[할 일 목록앱 - MVVM, Combine](https://github.com/tea-hkim/iOS-study/tree/main/MVVM/ToDoApp)|
 | WebKit |2023.06.12|[WebView로 카카오 우편번호 서비스 띄우기](https://github.com/tea-hkim/iOS-study/tree/main/WebKit/WebViewPractice)|
 | CollectionView |2023.06.15|[Compositional Layout 간단하게 구현해보기](https://github.com/tea-hkim/iOS-study/tree/main/CollectionView/BasicCompositionalLayout)|
 | ReactorKit |2023.06.19|[ReactorKit 예제 구현해보기]()|
@@ -12,6 +11,12 @@
 | WidgetKit |2023.07.05|[SwiftUI로 간단한 위젯 만들어보기](https://github.com/tea-hkim/iOS-study/tree/main/WidgetKit/WidgetPractice)|
 | CollectionView |2023.08.01|[여기어때 클론코딩](https://github.com/tea-hkim/iOS-study/tree/main/CollectionView/YeogiEottaeClone)|
 | URLSession |2023.09.19|[SwiftUI로 음악 다운로드, 멈춤, 다시 시작 구현해보기 - SwiftUI, URLSessionDownloadTask]()|
-| TableViewDiffableDataSource |2023.10.11|[DiffableDataSourece로 사진을 추가하는 할일 목록 만들]()|
+| TableViewDiffableDataSource |2023.10.11|[DiffableDataSourece로 사진을 추가하는 할일 목록 만들기]()|
+</br>
+
+### 설계 연습
+|주제|날짜|내용|
+|------|---|---|
+| MVVM |2023.04.31|[할 일 목록앱 - MVVM, Combine](https://github.com/tea-hkim/iOS-study/tree/main/MVVM/ToDoApp)|
 
 
