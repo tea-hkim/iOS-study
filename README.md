@@ -10,7 +10,6 @@
 | Objective-C |2023.07.02|[간단한 메모앱 만들기 - TableView, CoreData](https://github.com/tea-hkim/iOS-study/tree/main/Objective-C/MemoApp)|
 | WidgetKit |2023.07.05|[SwiftUI로 간단한 위젯 만들어보기](https://github.com/tea-hkim/iOS-study/tree/main/WidgetKit/WidgetPractice)|
 | CollectionView |2023.08.01|[여기어때 클론코딩](https://github.com/tea-hkim/iOS-study/tree/main/CollectionView/YeogiEottaeClone)|
-| URLSession |2023.09.19|[SwiftUI로 음악 다운로드, 멈춤, 다시 시작 구현해보기 - SwiftUI, URLSessionDownloadTask]()|
 | TableViewDiffableDataSource |2023.10.11|[DiffableDataSourece로 사진을 추가하는 할일 목록 만들기]()|
 </br>
 
