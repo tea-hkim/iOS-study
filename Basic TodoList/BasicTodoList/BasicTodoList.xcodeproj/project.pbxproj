@@ -16,6 +16,8 @@
 		90D6AA5D2B134A620095B52C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 90D6AA5C2B134A620095B52C /* README.md */; };
 		90D6AA602B1350940095B52C /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D6AA5F2B1350940095B52C /* Todo.swift */; };
 		90D6AA622B13511D0095B52C /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D6AA612B13511D0095B52C /* TodoList.swift */; };
+		90D6AA642B1352F80095B52C /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D6AA632B1352F80095B52C /* TodoCell.swift */; };
+		90D6AA662B135C9C0095B52C /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D6AA652B135C9C0095B52C /* Date+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		90D6AA5C2B134A620095B52C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		90D6AA5F2B1350940095B52C /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		90D6AA612B13511D0095B52C /* TodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
+		90D6AA632B1352F80095B52C /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
+		90D6AA652B135C9C0095B52C /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				90D6AA2A2B134A2D0095B52C /* AppDelegate.swift */,
 				90D6AA2C2B134A2D0095B52C /* SceneDelegate.swift */,
 				90D6AA2E2B134A2D0095B52C /* MainViewController.swift */,
+				90D6AA632B1352F80095B52C /* TodoCell.swift */,
+				90D6AA672B1363680095B52C /* Extension */,
 				90D6AA5E2B13508C0095B52C /* Model */,
 				90D6AA332B134A2E0095B52C /* Assets.xcassets */,
 				90D6AA352B134A2E0095B52C /* LaunchScreen.storyboard */,
@@ -125,6 +131,14 @@
 				90D6AA612B13511D0095B52C /* TodoList.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		90D6AA672B1363680095B52C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				90D6AA652B135C9C0095B52C /* Date+.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +272,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90D6AA662B135C9C0095B52C /* Date+.swift in Sources */,
 				90D6AA622B13511D0095B52C /* TodoList.swift in Sources */,
+				90D6AA642B1352F80095B52C /* TodoCell.swift in Sources */,
 				90D6AA2F2B134A2D0095B52C /* MainViewController.swift in Sources */,
 				90D6AA2B2B134A2D0095B52C /* AppDelegate.swift in Sources */,
 				90D6AA2D2B134A2D0095B52C /* SceneDelegate.swift in Sources */,
