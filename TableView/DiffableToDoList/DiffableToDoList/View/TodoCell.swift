@@ -14,11 +14,7 @@ class TodoCell: UITableViewCell {
     static let identifier: String = "TodoCell"
     private var todo: Todo?
     
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        return label
-    }()
+    private let titleLabel = UILabel()
     
     
     // MARK: Lifecycle
@@ -48,6 +44,8 @@ extension TodoCell {
     
     private func configureAttribute() {
         backgroundColor = .white
+        
+        titleLabel.textColor = .black
         titleLabel.text = todo?.title
     }
     

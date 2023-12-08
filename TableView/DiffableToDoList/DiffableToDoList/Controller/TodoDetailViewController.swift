@@ -37,8 +37,8 @@ class TodoDetailViewController: UIViewController {
     private let todoStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.spacing = 10
-        stackView.distribution = .fillProportionally
+        stackView.spacing = 15
+        stackView.distribution = .fill
         stackView.alignment = .fill
         return stackView
     }()
@@ -46,6 +46,7 @@ class TodoDetailViewController: UIViewController {
     private let todoLabel: UILabel = {
         let label = UILabel()
         label.text = "할일"
+        label.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         return label
     }()
     
@@ -67,6 +68,7 @@ class TodoDetailViewController: UIViewController {
         stackView.alignment = .center
         return stackView
     }()
+    
     private let completeLabel: UILabel = {
         let label = UILabel()
         label.text = "할일 완료"
@@ -79,10 +81,12 @@ class TodoDetailViewController: UIViewController {
         return todoSwitch
     }()
     
-    private let saveButton: UIButton = {
+    private lazy var saveButton: UIButton = {
         let button = UIButton(type: .system)
-        button.layer.cornerRadius = 20
+        button.layer.cornerRadius = 5
+        button.backgroundColor = .black
         button.tintColor = .white
+        button.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -99,6 +103,33 @@ class TodoDetailViewController: UIViewController {
     internal func configure(with todo: Todo) {
         self.todo = todo
     }
+    
+    // MARK: Private function
+    
+    @objc
+    private func saveButtonTapped() {
+        guard let todoText = todoTextField.text,
+              todoText.isEmpty == false else {
+            showAlert()
+            return
+        }
+        
+        if let todo {
+            TodoList.update(todo: todo)
+        } else {
+            let todo: Todo = Todo(title: todoText, isDone: false)
+            TodoList.addNew(todo: todo)
+        }
+        
+        navigationController?.popViewController(animated: true)
+    }
+            
+    private func showAlert() {
+        let alertViewcontroller = UIAlertController(title: nil, message: "할일을 입력해주세요", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "확인", style: .cancel)
+        alertViewcontroller.addAction(confirmAction)
+        present(alertViewcontroller, animated: true)
+    }
 
 }
 
@@ -111,6 +142,7 @@ extension TodoDetailViewController {
         titleLabel.text = todo == nil ?  "할일 입력" : "할일 수정"
         todoTextField.text = todo?.title
         completeSwitch.isOn = todo?.isDone ?? false
+        saveButton.setTitle(todo == nil ?  "저장하기" : "수정하기", for: .normal)
     }
     
     private func createLayout() {
@@ -145,8 +177,8 @@ extension TodoDetailViewController {
             completionStackView.heightAnchor.constraint(equalToConstant: Layout.Size.textFieldHeight),
 
             saveButton.topAnchor.constraint(equalTo: completionStackView.bottomAnchor, constant: Layout.Padding.top),
-            saveButton.leadingAnchor.constraint(equalTo: completeLabel.leadingAnchor),
-            saveButton.trailingAnchor.constraint(equalTo: completeLabel.trailingAnchor),
+            saveButton.leadingAnchor.constraint(equalTo: completionStackView.leadingAnchor),
+            saveButton.trailingAnchor.constraint(equalTo: completionStackView.trailingAnchor),
             saveButton.heightAnchor.constraint(equalToConstant: Layout.Size.textFieldHeight)
         ])
     }
