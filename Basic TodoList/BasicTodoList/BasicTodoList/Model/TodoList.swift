@@ -9,7 +9,7 @@ import Foundation
 
 final class TodoList {
     
-    static let empty: [Todo] = [
+    static let empty : [Todo] = [
         Todo(title: "일본어 회화", creationDate: Date(), isDone: false),
         Todo(title: "영어 회화", creationDate: Date(), isDone: false),
         Todo(title: "장보기", creationDate: Date(), isDone: true),
