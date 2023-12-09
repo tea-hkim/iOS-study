@@ -7,7 +7,10 @@
 
 import Foundation
 
-struct Emoji {
+final class Emoji {
+    
+    static let shared = Emoji()
+    private init() {} 
     
     enum Section: String, CaseIterable {
       case smileysAndPeople = "Smileys & People"
@@ -22,7 +25,7 @@ struct Emoji {
     
     var sections = Section.allCases
     
-    var item: [Section: [String]] = [
+    var items: [Section: [String]] = [
       .smileysAndPeople: ["😀", "😃", "😄", "😁", "😆", "😅", "😂", "🤣", "☺️", "😊", "🤯", "😇", "🙂", "😎", "🤩", "😴", "😬", "🥵"],
       .animalsAndNature: ["🐶", "🐱", "🦊", "🐻", "🦁", "🐮", "🐸", "🐵", "🐔", "🐧", "🦉", "🐴", "🦋", "🐙", "🐬", "🐈", "🌲", "🌍"],
       .foodAndDrink:     ["🍏", "🍇", "🍓", "🥝", "🍅", "🌽", "🥕", "🥨", "🧀", "🍖", "🦴", "🌮", "🍣", "🥤", "🥃", "🥟", "🍺", "🍪"],
