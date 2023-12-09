@@ -8,6 +8,7 @@
 import UIKit
 
 final class CollectionViewCell: UICollectionViewCell {
+    
     static let reuseableIdentifier = String(describing: CollectionViewCell.self)
     @IBOutlet weak var emojiLabel: UILabel!
     

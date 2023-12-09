@@ -21,29 +21,32 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0jJ-J6-qKY">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="60" height="58"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="eso-7p-gIc" customClass="CollectionViewCell" customModule="FlowLayout" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="85" height="83"/>
+                                        <rect key="frame" x="0.0" y="50" width="60" height="58"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dmN-5F-exS">
-                                            <rect key="frame" x="0.0" y="0.0" width="85" height="83"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="60" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAd-qS-hvP">
-                                                    <rect key="frame" x="21" y="31" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAd-qS-hvP">
+                                                    <rect key="frame" x="9" y="18.666666666666668" width="42" height="21.000000000000004"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VAd-qS-hvP" firstAttribute="centerY" secondItem="dmN-5F-exS" secondAttribute="centerY" id="FdF-cD-RVu"/>
+                                                <constraint firstItem="VAd-qS-hvP" firstAttribute="centerX" secondItem="dmN-5F-exS" secondAttribute="centerX" id="ZW3-ab-WTG"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="85" height="83"/>
+                                        <size key="customSize" width="60" height="58"/>
                                         <connections>
                                             <outlet property="emojiLabel" destination="VAd-qS-hvP" id="fet-YT-Ufz"/>
                                         </connections>

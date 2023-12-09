@@ -8,6 +8,8 @@
 import UIKit
 
 final class CollectionHeaderView: UICollectionReusableView {
+    
     static let reusableIdentifier = String(describing: CollectionHeaderView.self)
     @IBOutlet weak var headerTitleLabel: UILabel!
+    
 }
