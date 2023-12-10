@@ -21,6 +21,7 @@
 		90D8A61F2B24AF7000CC694A /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D8A61E2B24AF7000CC694A /* CollectionHeaderView.swift */; };
 		90D8A6222B24B02800CC694A /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D8A6212B24B02800CC694A /* CollectionViewDataSource.swift */; };
 		90D8A6242B24B6C300CC694A /* DetailEmojiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D8A6232B24B6C300CC694A /* DetailEmojiViewController.swift */; };
+		90EA22D92B25EEDE00A96112 /* CollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EA22D82B25EEDE00A96112 /* CollectionViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		90D8A61E2B24AF7000CC694A /* CollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeaderView.swift; sourceTree = "<group>"; };
 		90D8A6212B24B02800CC694A /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
 		90D8A6232B24B6C300CC694A /* DetailEmojiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEmojiViewController.swift; sourceTree = "<group>"; };
+		90EA22D82B25EEDE00A96112 /* CollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				90D8A6202B24AFDC00CC694A /* Contoller */,
 				909374732B2352AD0006D2AC /* AppDelegate.swift */,
 				90D8A6212B24B02800CC694A /* CollectionViewDataSource.swift */,
+				90EA22D82B25EEDE00A96112 /* CollectionViewDelegate.swift */,
 				909374752B2352AD0006D2AC /* SceneDelegate.swift */,
 				9093747C2B2352AE0006D2AC /* Assets.xcassets */,
 				9093747E2B2352AE0006D2AC /* LaunchScreen.storyboard */,
@@ -302,6 +305,7 @@
 				909374782B2352AD0006D2AC /* ViewController.swift in Sources */,
 				909374742B2352AD0006D2AC /* AppDelegate.swift in Sources */,
 				90D8A61F2B24AF7000CC694A /* CollectionHeaderView.swift in Sources */,
+				90EA22D92B25EEDE00A96112 /* CollectionViewDelegate.swift in Sources */,
 				909374A62B2352DE0006D2AC /* Emoji.swift in Sources */,
 				909374762B2352AD0006D2AC /* SceneDelegate.swift in Sources */,
 				90D8A6222B24B02800CC694A /* CollectionViewDataSource.swift in Sources */,

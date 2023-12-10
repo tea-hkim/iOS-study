@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     
     private func configureCollectionView() {
         collectionView.dataSource = dataSource
+        collectionView.allowsMultipleSelection = true
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
