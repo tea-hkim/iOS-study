@@ -35,5 +35,21 @@ final class Emoji {
       .symbols:          ["❤️", "💔", "☮️", "☯️", "☢️", "🆚", "🉐", "🆘", "❌", "💯", "‼️", "🚸", "⚜️", "♿️", "🔈", "🔔", "♣️", "🚸"],
       .flags:            ["🏳️", "🇺🇸", "🇯🇵", "🇩🇪", "🇨🇦", "🇲🇽", "🇧🇷", "🇰🇪", "🇳🇬", "🇮🇳", "🇷🇺", "🇦🇺", "🇫🇷", "🇵🇱", "🇻🇳", "🇱🇹", "🇱🇰", "🇪🇪"]
     ]
+        
+}
+
+extension Emoji {
+    
+    // TODO: - How can i test this method?
+    public func addRandomEmoji(at section: Section) {
+        let extraEmojiList = ["💀", "🤖", "👍", "🤘🏾", "🖐🏼", "👇🏽", "🙏🏾", "👀", "👩🏽‍🦱", "👩🏿", "🧕🏽", "🕵🏻‍♂️", "👨🏼‍💻", "👭", "🧚🏾‍♂️", "💍"]
+        let randomIndex = Int.random(in: 0..<extraEmojiList.count)
+        let randomEmoji = extraEmojiList[randomIndex]
+        
+        guard var newItems = items[section] else { return }
+        newItems.append(randomEmoji)
+        
+        items.updateValue(newItems, forKey: section)
+    }
     
 }

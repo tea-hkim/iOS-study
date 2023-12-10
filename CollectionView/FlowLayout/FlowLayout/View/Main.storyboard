@@ -85,7 +85,13 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2Ia-qb-QsG" secondAttribute="bottom" id="ru6-d5-0gf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Qvp-PT-hkY"/>
+                    <navigationItem key="navigationItem" id="Qvp-PT-hkY">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Crv-nr-CES">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="Y6W-OH-hqX" id="7Am-dp-QOO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="2Ia-qb-QsG" id="tXi-BI-1MU"/>
                     </connections>
