@@ -20,6 +20,7 @@
 		90D8A61D2B24AEBC00CC694A /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D8A61C2B24AEBC00CC694A /* CollectionViewCell.swift */; };
 		90D8A61F2B24AF7000CC694A /* CollectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D8A61E2B24AF7000CC694A /* CollectionHeaderView.swift */; };
 		90D8A6222B24B02800CC694A /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D8A6212B24B02800CC694A /* CollectionViewDataSource.swift */; };
+		90D8A6242B24B6C300CC694A /* DetailEmojiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D8A6232B24B6C300CC694A /* DetailEmojiViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		90D8A61C2B24AEBC00CC694A /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		90D8A61E2B24AF7000CC694A /* CollectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeaderView.swift; sourceTree = "<group>"; };
 		90D8A6212B24B02800CC694A /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
+		90D8A6232B24B6C300CC694A /* DetailEmojiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEmojiViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				909374772B2352AD0006D2AC /* ViewController.swift */,
+				90D8A6232B24B6C300CC694A /* DetailEmojiViewController.swift */,
 			);
 			path = Contoller;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90D8A6242B24B6C300CC694A /* DetailEmojiViewController.swift in Sources */,
 				90D8A61D2B24AEBC00CC694A /* CollectionViewCell.swift in Sources */,
 				909374782B2352AD0006D2AC /* ViewController.swift in Sources */,
 				909374742B2352AD0006D2AC /* AppDelegate.swift in Sources */,

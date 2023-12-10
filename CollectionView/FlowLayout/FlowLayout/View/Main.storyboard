@@ -49,6 +49,7 @@
                                         <size key="customSize" width="60" height="58"/>
                                         <connections>
                                             <outlet property="emojiLabel" destination="VAd-qS-hvP" id="fet-YT-Ufz"/>
+                                            <segue destination="zOI-i5-fVZ" kind="show" identifier="showDetailEmoji" id="bKb-bc-8e3"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -92,6 +93,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1064.885496183206" y="18.30985915492958"/>
+        </scene>
+        <!--Detail Emoji View Controller-->
+        <scene sceneID="2AF-VR-dek">
+            <objects>
+                <viewController id="zOI-i5-fVZ" customClass="DetailEmojiViewController" customModule="FlowLayout" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="njl-y7-Kwx">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6VC-Mm-rmq">
+                                <rect key="frame" x="156.66666666666666" y="386" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="20M-5a-qxm"/>
+                                    <constraint firstAttribute="width" constant="80" id="eFN-XI-zSE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1xz-N6-zHW"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6VC-Mm-rmq" firstAttribute="centerY" secondItem="njl-y7-Kwx" secondAttribute="centerY" id="mwk-rT-Qbe"/>
+                            <constraint firstItem="6VC-Mm-rmq" firstAttribute="centerX" secondItem="njl-y7-Kwx" secondAttribute="centerX" id="u6R-XK-72o"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3ED-21-2YS"/>
+                    <connections>
+                        <outlet property="emojiLabel" destination="6VC-Mm-rmq" id="3Hc-8P-qbh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fIc-DY-e5Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2089" y="18"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Kwg-lY-xLE">
