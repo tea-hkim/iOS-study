@@ -52,4 +52,10 @@ extension Emoji {
         items.updateValue(newItems, forKey: section)
     }
     
+    public func deleteEmoji(section: Section, itemIndex: Int) {
+        guard var itemList = items[section] else { return }
+        itemList.remove(at: itemIndex)
+        items.updateValue(itemList, forKey: section)
+    }
+    
 }

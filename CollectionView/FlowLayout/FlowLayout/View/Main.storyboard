@@ -86,14 +86,25 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Qvp-PT-hkY">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Crv-nr-CES">
-                            <connections>
-                                <action selector="addButtonTapped:" destination="Y6W-OH-hqX" id="7Am-dp-QOO"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="Ija-0f-P1p"/>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="Crv-nr-CES">
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="Y6W-OH-hqX" id="7Am-dp-QOO"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="trash" hidden="YES" id="8rG-fF-gHS">
+                                <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="deleteButtonTapped:" destination="Y6W-OH-hqX" id="ZSG-Gy-GUi"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="Crv-nr-CES" id="Dak-US-zb7"/>
                         <outlet property="collectionView" destination="2Ia-qb-QsG" id="tXi-BI-1MU"/>
+                        <outlet property="deleteButton" destination="8rG-fF-gHS" id="Qhy-rE-IhQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
