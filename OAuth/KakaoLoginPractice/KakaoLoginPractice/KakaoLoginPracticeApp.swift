@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+
 @main
 struct KakaoLoginPracticeApp: App {
     var body: some Scene {

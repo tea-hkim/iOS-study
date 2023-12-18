@@ -14,6 +14,8 @@
 		908FA7172B30667E00082634 /* KakaoSDKTalk in Frameworks */ = {isa = PBXBuildFile; productRef = 908FA7162B30667E00082634 /* KakaoSDKTalk */; };
 		908FA7192B30667E00082634 /* KakaoSDKTemplate in Frameworks */ = {isa = PBXBuildFile; productRef = 908FA7182B30667E00082634 /* KakaoSDKTemplate */; };
 		908FA71B2B30667E00082634 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 908FA71A2B30667E00082634 /* KakaoSDKUser */; };
+		908FA71F2B306B3100082634 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908FA71E2B306B3100082634 /* AppDelegate.swift */; };
+		908FA7212B306D6700082634 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908FA7202B306D6700082634 /* SceneDelegate.swift */; };
 		90D0A0D22B2ECD7000069EED /* KakaoLoginPracticeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D0A0D12B2ECD7000069EED /* KakaoLoginPracticeApp.swift */; };
 		90D0A0D42B2ECD7000069EED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D0A0D32B2ECD7000069EED /* ContentView.swift */; };
 		90D0A0D62B2ECD7000069EED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90D0A0D52B2ECD7000069EED /* Assets.xcassets */; };
@@ -23,6 +25,8 @@
 /* Begin PBXFileReference section */
 		908FA71C2B30672000082634 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		908FA71D2B30680200082634 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		908FA71E2B306B3100082634 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		908FA7202B306D6700082634 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		90D0A0CE2B2ECD7000069EED /* KakaoLoginPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KakaoLoginPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90D0A0D12B2ECD7000069EED /* KakaoLoginPracticeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginPracticeApp.swift; sourceTree = "<group>"; };
 		90D0A0D32B2ECD7000069EED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -69,6 +73,8 @@
 			children = (
 				908FA71C2B30672000082634 /* Info.plist */,
 				90D0A0D12B2ECD7000069EED /* KakaoLoginPracticeApp.swift */,
+				908FA71E2B306B3100082634 /* AppDelegate.swift */,
+				908FA7202B306D6700082634 /* SceneDelegate.swift */,
 				90D0A0D32B2ECD7000069EED /* ContentView.swift */,
 				90D0A0D52B2ECD7000069EED /* Assets.xcassets */,
 				90D0A0D72B2ECD7000069EED /* Preview Content */,
@@ -167,8 +173,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				908FA71F2B306B3100082634 /* AppDelegate.swift in Sources */,
 				90D0A0D42B2ECD7000069EED /* ContentView.swift in Sources */,
 				90D0A0D22B2ECD7000069EED /* KakaoLoginPracticeApp.swift in Sources */,
+				908FA7212B306D6700082634 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
