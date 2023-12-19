@@ -11,6 +11,7 @@
 		014ECDBC2B31251900B9ED23 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014ECDBB2B31251900B9ED23 /* ContentView.swift */; };
 		014ECDBE2B31251B00B9ED23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 014ECDBD2B31251B00B9ED23 /* Assets.xcassets */; };
 		014ECDC12B31251B00B9ED23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 014ECDC02B31251B00B9ED23 /* Preview Assets.xcassets */; };
+		014ECDC92B31298600B9ED23 /* SignInWithAppleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014ECDC82B31298600B9ED23 /* SignInWithAppleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,8 @@
 		014ECDBB2B31251900B9ED23 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		014ECDBD2B31251B00B9ED23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		014ECDC02B31251B00B9ED23 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		014ECDC72B31285F00B9ED23 /* AppleLoginPractice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppleLoginPractice.entitlements; sourceTree = "<group>"; };
+		014ECDC82B31298600B9ED23 /* SignInWithAppleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +54,10 @@
 		014ECDB82B31251900B9ED23 /* AppleLoginPractice */ = {
 			isa = PBXGroup;
 			children = (
+				014ECDC72B31285F00B9ED23 /* AppleLoginPractice.entitlements */,
 				014ECDB92B31251900B9ED23 /* AppleLoginPracticeApp.swift */,
 				014ECDBB2B31251900B9ED23 /* ContentView.swift */,
+				014ECDC82B31298600B9ED23 /* SignInWithAppleView.swift */,
 				014ECDBD2B31251B00B9ED23 /* Assets.xcassets */,
 				014ECDBF2B31251B00B9ED23 /* Preview Content */,
 			);
@@ -139,6 +144,7 @@
 			files = (
 				014ECDBC2B31251900B9ED23 /* ContentView.swift in Sources */,
 				014ECDBA2B31251900B9ED23 /* AppleLoginPracticeApp.swift in Sources */,
+				014ECDC92B31298600B9ED23 /* SignInWithAppleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +275,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AppleLoginPractice/AppleLoginPractice.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AppleLoginPractice/Preview Content\"";
@@ -298,10 +305,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AppleLoginPractice/AppleLoginPractice.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AppleLoginPractice/Preview Content\"";
-				DEVELOPMENT_TEAM = 26TTJCC6C2;
+				DEVELOPMENT_TEAM = H3RZ767HR2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
