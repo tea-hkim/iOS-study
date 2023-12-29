@@ -17,5 +17,19 @@
 	</array>
 	<key>UIBackgroundModes</key>
 	<array/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+	</dict>
+    <key>LSApplicationQueriesSchemes</key>
+     <array>
+         <!-- 카카오톡으로 로그인 -->
+         <string>kakaokompassauth</string>
+         <!-- 카카오톡 공유 -->
+         <string>kakaolink</string>
+         <!-- 카카오톡 채널 -->
+         <string>kakaoplus</string>
+     </array>
 </dict>
 </plist>
